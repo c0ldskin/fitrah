@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research · Fitrah</title>
+  <meta name="description" content="Fitrah's hypothesis, its five layers of agent trust, three candidate research directions, and 18 open questions.">
+  <link rel="canonical" href="https://c0ldskin.github.io/fitrah/research.html">
+  <meta property="og:title" content="Fitrah research: hypothesis, architecture, roadmap and open questions">
+  <meta property="og:image" content="https://c0ldskin.github.io/fitrah/assets/social.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0A1228">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap nav">
+      <a class="brand" href="./"><img src="assets/logo.png" alt="" width="28" height="28">Fitrah</a>
+      <nav>
+        <a href="findings.html">Findings</a>
+        <a href="research.html">Research</a>
+        <a href="inspiration.html">Inspiration</a>
+        <a href="assets/fitrah-paper-draft.pdf">Paper</a>
+        <a href="ar/" lang="ar" hreflang="ar">العربية</a>
+        <a class="pill" href="./#collaborate">Collaborate</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap page-head">
+      <p class="status"><i></i>Research paused · seeking collaborators</p>
+      <p class="eyebrow">Research</p>
+      <h1>The hypothesis, the architecture, and what’s next</h1>
+      <p class="sub">What Fitrah set out to prove, how the problem breaks into layers, and the directions that look most promising now. <span class="updated">Updated 2 Nov 2026</span></p>
+    </section>
+
+    <section id="valid" class="band">
+      <div class="wrap">
+        <p class="eyebrow">The hypothesis</p>
+        <h2>What makes a child agent valid</h2>
+        <ol class="rules">
+          <li><span>01</span>Its mandatory rules are <strong>inherited</strong> unchanged from its lineage.</li>
+          <li><span>02</span>The authority it can use <strong>never exceeds</strong> what its parent may hand down.</li>
+          <li><span>03</span>The authority it can pass on <strong>never grows</strong> from one generation to the next.</li>
+          <li><span>04</span>A sensitive action runs only when <strong>both</strong> its authority and its inherited rules allow it.</li>
+          <li><span>05</span>All of this stays enforceable with <strong>no AI model present</strong>.</li>
+        </ol>
+        <p class="muted" style="margin-top:20px">Formally: <code>core(child) = core(root)</code>, <code>C(child) ⊆ Dg(parent)</code> and <code>Dg(child) ⊆ C(child)</code>, where C is the authority an agent can use and Dg the authority it may delegate. See the <a href="https://github.com/c0ldskin/fitrah/blob/main/research/invariants.md">invariants</a>.</p>
+      </div>
+    </section>
+
+    <section id="layers" class="wrap">
+      <p class="eyebrow">Architecture</p>
+      <h2>Five layers of agent trust, one at a time</h2>
+      <p class="muted">Phase 1 focused only on Layer 2: inherited authority has to hold before identity, attestation or federation can mean anything.</p>
+      <img class="figure" src="assets/layers.jpg" alt="Five layers: behavioural disposition; digital DNA and inherited authority (Phase 1, Lab 0); cryptographic identity and lineage; execution trust; inter-agent trust and federation." width="1200" height="520" loading="lazy">
+    </section>
+
+    <section id="roadmap" class="band">
+      <div class="wrap">
+        <p class="eyebrow">Where it could go next</p>
+        <h2>Three candidate directions</h2>
+        <p class="muted">From the frontier gap assessment, ranked by scientific value and by how much strong prior art already covers them. None is approved yet: each needs a fair comparison against the strongest baseline first.</p>
+        <div class="roadmap">
+          <div class="road"><span class="pillt go">Pursue</span><h3>Lifecycle assurance across runtimes</h3><p>A portable, verifiable chain from authorised birth to attested instance to real-world effect and audit, compared with standards-based deployments that aren’t composed.</p></div>
+          <div class="road"><span class="pillt q">Pursue as a question</span><h3>Group-level constraints</h3><p>Can a policy checked at the point of real-world effect reject harmful group behaviour that per-agent policies accept, without blocking legitimate work?</p></div>
+          <div class="road"><span class="pillt no">Reconsider</span><h3>Inherited judgement</h3><p>Does a verified lineage improve refusal and escalation beyond an equal persistent-policy baseline? The causal case is currently weak.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="open" class="wrap">
+      <p class="eyebrow">Open questions</p>
+      <h2>18 questions we can’t answer yet</h2>
+      <div class="grid">
+        <a class="q" href="https://github.com/c0ldskin/fitrah/issues/17"><span class="tag">Good first challenge</span><b>Question 17</b>What hereditary property can Fitrah enforce that ordinary capability attenuation can’t represent?</a>
+        <a class="q" href="https://github.com/c0ldskin/fitrah/issues/18"><span class="tag">Good first challenge</span><b>Question 18</b>Against a modern delegation broker, which invalid lineage states does only Fitrah exclude?</a>
+        <a class="q" href="https://github.com/c0ldskin/fitrah/issues/2"><span class="tag">Good first challenge</span><b>Question 2</b>What, specifically, is new compared with macaroons, Biscuit, UCAN, SPKI and object-capability systems?</a>
+        <a class="q" href="https://github.com/c0ldskin/fitrah/issues/9"><b>Question 9</b>How do guarantees hold up when agents pass authority to each other outside the parent-child path?</a>
+        <a class="q" href="https://github.com/c0ldskin/fitrah/issues/14"><b>Question 14</b>How can an outsider verify events if the trusted runtime records a false but consistent history?</a>
+        <a class="q" href="https://github.com/c0ldskin/fitrah/issues/12"><b>Question 12</b>Where must the root of trust live for “born valid” to mean anything against a copied agent?</a>
+      </div>
+      <p class="more"><a href="https://github.com/c0ldskin/fitrah/issues?q=is%3Aissue+is%3Aopen+label%3A%22open+question%22">See all 18 open questions →</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <p><span class="arabic small" lang="ar">فطرة</span> <em>Fitrah</em> is Arabic for innate nature: the disposition a being is born with.</p>
+      <p><a href="./">Home</a> · <a href="findings.html">Findings</a> · <a href="inspiration.html">Inspiration</a> · <a href="assets/fitrah-paper-draft.pdf">Paper (PDF)</a> · <a href="https://github.com/c0ldskin/fitrah">GitHub</a> · <a href="ar/">العربية</a> · MIT licensed · Updated 2 November 2026</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -21,10 +21,10 @@
     <div class="wrap nav">
       <a class="brand" href="./"><img src="assets/logo.png" alt="" width="28" height="28">Fitrah</a>
       <nav>
-        <a href="#stages">Stages</a>
-        <a href="#experiments">Experiments</a>
-        <a href="#lessons">Lessons</a>
+        <a href="findings.html">Findings</a>
+        <a href="research.html">Research</a>
         <a href="inspiration.html">Inspiration</a>
+        <a href="assets/fitrah-paper-draft.pdf">Paper</a>
         <a href="ar/" lang="ar" hreflang="ar">العربية</a>
         <a class="pill" href="./#collaborate">Collaborate</a>
       </nav>
@@ -36,7 +36,7 @@
       <p class="status"><i></i>Research paused · seeking collaborators</p>
       <p class="eyebrow">Findings</p>
       <h1>What holds, what doesn’t, and what we learned</h1>
-      <p class="sub">Every result from Lab 0 and the experiments around it, including the negative ones. All of it is bounded: proven within stated models and limits, not in general.</p>
+      <p class="sub">Every result from Lab 0 and the experiments around it, including the negative ones. All of it is bounded: proven within stated models and limits, not in general. Lab codes are explained in the <a href="#glossary">glossary</a>. <span class="updated">Updated 2 Nov 2026</span></p>
       <div class="callout"><strong>The short version.</strong> Enforcing hereditary rules outside the model works, and it survived deep stress-testing. But when we gave a strong modern delegation broker the same trusted facts, it matched Fitrah’s current rules exactly. So the open question is no longer “does enforcement work?” but “what can only a hereditary design guarantee?”</div>
     </section>
 
@@ -48,11 +48,11 @@
           <table>
             <thead><tr><th>Stage</th><th>What was tested</th><th>Result</th><th>Status</th></tr></thead>
             <tbody>
-              <tr><td>Stage 1</td><td>26 hand-written adversarial scenarios, scripted attacker (A0). Baseline vs rules in model context vs Fitrah enforcement.</td><td>Baseline and prompt-rules: 10 invalid births, 4 core changes, 3 bypasses each. Enforcement: <strong>0, 0, 0</strong>, with 0 of 6 legitimate cases blocked. Byte-identical reruns, independent verifier.</td><td><span class="tag-ok">Complete</span></td></tr>
-              <tr><td>Stage 1B</td><td>Deep lineages, generated histories, fault injection, bounded exhaustive search. Reproduced on GitHub-hosted runners.</td><td>No invariant violation across 100 generations, 2,000 histories (100,000 transitions) and every one of 6,742 reachable states (459,386 transitions). Found and fixed defects in the <em>verifier</em>.</td><td><span class="tag-ok">Complete</span></td></tr>
-              <tr><td>Stage 1B limit</td><td>Can replayed, signed evidence prove what happened?</td><td>No. It proves internal consistency only. A compromised runtime that lies consistently passes replay (TC-26).</td><td><span class="tag-neg">Fundamental limit</span></td></tr>
-              <tr><td>Stage 2 environment</td><td>Disposable, disconnected Hyper-V Linux VM: separate non-root identities, protected filesystem, no network, descendant containment.</td><td>All nine prerequisites pass. Containment test (S65): fork, double fork, setsid and new process groups escape <code>killpg</code>; the cgroup-v2 boundary terminates them all.</td><td><span class="tag-ok">Ready</span></td></tr>
-              <tr><td>Stage 2 integration</td><td>Synthetic filesystem pilot, then a guarded resource-backed run.</td><td>Pilot passed. It exposed an evidence/state atomicity bug (TC-27), which was repaired. The first full run returned <strong>INVALID_RUN</strong> after authorised birth then startup failure; cleanup was confirmed and nothing ran.</td><td><span class="tag-open">Incomplete</span></td></tr>
+              <tr><td>Stage 1</td><td>26 hand-written attack scenarios from a scripted attacker<span class="code">A0</span>. No rules vs rules in the prompt vs Fitrah enforcement.</td><td>Without enforcement: 10 invalid agents created, 4 inherited-rule changes and 3 blocked-action bypasses. With enforcement: <strong>0, 0, 0</strong>, and none of the 6 legitimate cases blocked. Reruns were byte-identical and an independent verifier agreed.</td><td><span class="tag-ok">Complete</span></td></tr>
+              <tr><td>Stage 1B</td><td>Deep lineages, generated histories, fault injection, bounded exhaustive search. Reproduced on GitHub-hosted runners.</td><td>No rule was ever broken across 100 generations, 2,000 generated histories (100,000 state changes) and every one of 6,742 reachable states (459,386 state changes). It also found and fixed bugs in the <em>verifier</em>.</td><td><span class="tag-ok">Complete</span></td></tr>
+              <tr><td>Stage 1B limit</td><td>Can replayed, signed evidence prove what happened?</td><td>No. It proves the record is consistent, not that it’s true. A compromised runtime that lies consistently passes the check<span class="code">TC-26</span>.</td><td><span class="tag-neg">Fundamental limit</span></td></tr>
+              <tr><td>Stage 2 environment</td><td>Disposable, disconnected Hyper-V Linux VM: separate non-root identities, protected filesystem, no network, descendant containment.</td><td>All nine prerequisites pass. In the containment test<span class="code">S65</span>, child processes that fork or detach escape ordinary process-group termination; a Linux cgroup boundary stopped every one.</td><td><span class="tag-ok">Ready</span></td></tr>
+              <tr><td>Stage 2 integration</td><td>Synthetic filesystem pilot, then a guarded resource-backed run.</td><td>The pilot passed, and exposed a bug where evidence and state could fall out of step<span class="code">TC-27</span>, since fixed. The first full run <strong>failed</strong>: the agent was authorised but didn’t start. Cleanup was confirmed, nothing ran, and the failed run is kept as evidence.</td><td><span class="tag-open">Incomplete</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -67,17 +67,18 @@
         <table>
           <thead><tr><th>Experiment</th><th>Question</th><th>Finding</th><th>Verdict</th></tr></thead>
           <tbody>
-            <tr><td>E1 · E2</td><td>Does Fitrah reject states that delegation accepts?</td><td>Against simple attenuation, yes: 60 of 64 states. Give the broker equivalent trusted caveats and the difference largely disappears.</td><td><span class="tag-neg">No expressiveness edge</span></td></tr>
-            <tr><td>E3</td><td>What can go wrong in the birth lifecycle?</td><td>Retrying a launch with an uncertain outcome creates <strong>two live agents for one birth</strong>. Forbidding retry while uncertain removes it.</td><td><span class="tag-ok">Fail-closed rule</span></td></tr>
-            <tr><td>E4</td><td>What catches a runtime that signs a false history?</td><td>Its own signed log catches nothing. An external birth witness catches false or hidden births; resource receipts catch false writes; instance measurement catches false instances.</td><td><span class="tag-ok">Needs independent witnesses</span></td></tr>
-            <tr><td>E5</td><td>Do per-agent rules make a population safe?</td><td>No. A reads a secret and sends it to B; B writes it publicly. Every step is individually allowed.</td><td><span class="tag-neg">Collusion counterexample</span></td></tr>
-            <tr><td>E6</td><td>Strong broker with a trusted registration state machine vs Fitrah</td><td>256 states examined: 36 valid in each, 0 unique to either.</td><td><span class="tag-neg">Equivalent</span></td></tr>
-            <tr><td>E7</td><td>Should a lineage share one authority budget across siblings?</td><td>Designed to test whether aggregate budgets differ from a stateful reservation broker.</td><td><span class="tag-open">Designed</span></td></tr>
-            <tr><td>E8</td><td>Is verifiable lineage evidence distinctive?</td><td>32,768 lineage states: a strong credential chain matches Fitrah exactly.</td><td><span class="tag-neg">Not distinctive</span></td></tr>
-            <tr><td>E9</td><td>Can authority leak between birth and instance binding?</td><td>Decoupled lifecycle: yes, a crash leaves a process holding authority without a committed binding. Gated lifecycle: no tested crash did.</td><td><span class="tag-ok">Gate authority on binding</span></td></tr>
+            <tr><td>Simple vs strong delegation<span class="code">E1 · E2</span></td><td>Does Fitrah reject agents that delegation accepts?</td><td>Against simple delegation, yes: 60 of 64 states. Give the delegation system the same trusted facts and the difference largely disappears.</td><td><span class="tag-neg">No expressiveness edge</span></td></tr>
+            <tr><td>Agent start-up<span class="code">E3</span></td><td>What can go wrong while an agent is being created?</td><td>Retrying a launch with an uncertain outcome creates <strong>two live agents for one birth</strong>. Forbidding retry while uncertain removes it.</td><td><span class="tag-ok">Fail-closed rule</span></td></tr>
+            <tr><td>Catching a lying runtime<span class="code">E4</span></td><td>What catches a runtime that signs a false history?</td><td>Its own signed log catches nothing. An external birth witness catches false or hidden births; resource receipts catch false writes; instance measurement catches false instances.</td><td><span class="tag-ok">Needs independent witnesses</span></td></tr>
+            <tr><td>Groups of agents<span class="code">E5</span></td><td>Do per-agent rules make a group of agents safe?</td><td>No. A reads a secret and sends it to B; B writes it publicly. Every step is individually allowed.</td><td><span class="tag-neg">Collusion counterexample</span></td></tr>
+            <tr><td>Strongest baseline<span class="code">E6</span></td><td>A strong delegation broker, given the same trusted registration steps, vs Fitrah</td><td>256 states examined: 36 valid in each, 0 unique to either.</td><td><span class="tag-neg">Equivalent</span></td></tr>
+            <tr><td>Shared budgets<span class="code">E7</span></td><td>Should siblings share one authority budget?</td><td>Designed to test whether aggregate budgets differ from a stateful reservation broker.</td><td><span class="tag-open">Designed</span></td></tr>
+            <tr><td>Lineage evidence<span class="code">E8</span></td><td>Is a verifiable family tree of agents distinctive?</td><td>Across 32,768 lineage chains, a strong credential chain matches Fitrah exactly.</td><td><span class="tag-neg">Not distinctive</span></td></tr>
+            <tr><td>Binding authority<span class="code">E9</span></td><td>Can authority leak between an agent’s creation and its link to a running process?</td><td>Decoupled lifecycle: yes, a crash leaves a process holding authority without a committed binding. Gated lifecycle: no tested crash did.</td><td><span class="tag-ok">Gate authority on binding</span></td></tr>
           </tbody>
         </table>
       </div>
+      <img class="figure" style="margin-top:26px" src="assets/broker.jpg" alt="Against the strongest baseline: a strong delegation broker and Fitrah both accept 36 of 256 agent states, with 0 unique to either; across 32,768 lineage chains, 0 are unique to either." width="1200" height="560" loading="lazy">
       <div class="links-row">
         <a href="https://github.com/c0ldskin/fitrah/tree/main/experiments/nonvm/results">Experiment write-ups →</a>
         <a href="https://github.com/c0ldskin/fitrah/blob/main/experiments/lab0/results/stage1-findings.md">Stage 1 findings →</a>
@@ -91,21 +92,37 @@
         <h2>Eleven things building Fitrah taught us</h2>
         <div class="lessons">
           <div class="lesson"><b>A prompt is not a control.</b><p>Putting the rules in the model’s context made no measurable difference. Enforcement has to sit outside the model.</p><span class="src">Stage 1</span></div>
-          <div class="lesson"><b>Design for no model at all.</b><p>If the guarantees only hold while the model cooperates, they aren’t guarantees. Fitrah’s rules are enforced with no LLM present.</p><span class="src">Lab 0 design</span></div>
+          <div class="lesson"><b>Design for no model at all.</b><p>If the guarantees only hold while the model cooperates, they aren’t guarantees. Fitrah’s rules are enforced with no AI model present.</p><span class="src">Lab 0 design</span></div>
           <div class="lesson"><b>Beat the strongest baseline, not a straw man.</b><p>Fitrah beats “no enforcement” easily. Against a strong broker with the same trusted facts, it ties. Only the second comparison counts.</p><span class="src">E1 · E2 · E6 · E8</span></div>
           <div class="lesson"><b>Signed logs prove consistency, not truth.</b><p>Catching a lying runtime needs independent witnesses: birth witnesses, resource receipts, instance measurements.</p><span class="src">TC-26 · E4</span></div>
           <div class="lesson"><b>Your verifier is attack surface too.</b><p>Stress-testing the runtime also found and fixed defects in the verifier that checks it.</p><span class="src">Stage 1B</span></div>
-          <div class="lesson"><b>Killing a process group isn’t containment.</b><p>Forked and detached children escape <code>killpg</code>. A cgroup-v2 boundary caught every one.</p><span class="src">Stage 2 · S65</span></div>
+          <div class="lesson"><b>Killing a process group isn’t containment.</b><p>Processes that fork or detach escape ordinary termination. A Linux cgroup boundary caught every one.</p><span class="src">Stage 2 · S65</span></div>
           <div class="lesson"><b>Never retry an uncertain launch.</b><p>Retrying can give one birth two live agents. Fail closed while the outcome is unknown.</p><span class="src">E3</span></div>
           <div class="lesson"><b>Bind authority to the running instance.</b><p>Grant protected authority only after birth, core, evidence and instance are committed together, atomically.</p><span class="src">E9 · TC-27</span></div>
           <div class="lesson"><b>Compliant agents can still collude.</b><p>Population safety isn’t the sum of per-agent rules. It needs information-flow or group-level constraints.</p><span class="src">E5</span></div>
-          <div class="lesson"><b>Keep the failures.</b><p>The INVALID_RUN, the verifier bugs and the negative ablations are all preserved. A record that only keeps wins can’t be trusted.</p><span class="src">Research discipline</span></div>
+          <div class="lesson"><b>Keep the failures.</b><p>The failed run, the verifier bugs and the negative comparisons are all preserved. A record that only keeps wins can’t be trusted.</p><span class="src">Research discipline</span></div>
           <div class="lesson"><b>Decide what not to build.</b><p>A sister project, Research Forge, was stopped at a NO-GO gate: no validated need, and strong prior art. Stopping early is a result.</p><span class="src">Research Forge</span></div>
         </div>
       </div>
     </section>
 
-    <section id="gates" class="wrap">
+    <section id="glossary" class="wrap">
+      <p class="eyebrow">Glossary</p>
+      <h2>The lab codes, in plain words</h2>
+      <dl class="glossary">
+        <div><dt>Stage 1, 1B, 2</dt><dd>The three phases of Lab 0: scripted attacks, deep stress-testing, then hostile code in a disposable virtual machine.</dd></div>
+        <div><dt>E1–E9</dt><dd>Small, bounded experiments that compare Fitrah with the strongest existing alternatives.</dd></div>
+        <div><dt>A0</dt><dd>The weakest attacker class: a script sending hostile requests, not running hostile code.</dd></div>
+        <div><dt>TC-26, TC-27</dt><dd>Recorded research findings: TC-26 is the “signed logs prove consistency, not truth” limit; TC-27 is the evidence/state bug found and fixed.</dd></div>
+        <div><dt>S65</dt><dd>The containment test that tries every way a child process can escape and checks that none survive.</dd></div>
+        <div><dt>Delegation broker</dt><dd>An existing kind of system that hands out narrowed permissions and checks them (for example macaroons, Biscuit, UCAN).</dd></div>
+        <div><dt>Bounded</dt><dd>Proven for every case up to a stated size or depth, not for all possible cases.</dd></div>
+        <div><dt>Open question (OQ)</dt><dd>A research question Fitrah can’t answer yet. Each has a public issue.</dd></div>
+      </dl>
+    </section>
+
+    <section id="gates" class="band">
+      <div class="wrap">
       <p class="eyebrow">How decisions are made</p>
       <h2>Seven gates before anything gets built</h2>
       <p class="muted">Every candidate direction, in Fitrah and its sister projects, has to pass these in order. Research Forge, a proposed research-provenance platform, failed the first three and was closed with its negative findings preserved.</p>
@@ -118,14 +135,15 @@
         <li><strong>Adoption:</strong> sustainable open-source value</li>
         <li><strong>Product fit:</strong> real willingness to adopt</li>
       </ol>
+      </div>
     </section>
 
-    <section class="band">
-      <div class="wrap">
+    <section class="wrap">
+      <div>
         <p class="eyebrow">Go deeper</p>
         <h2>Read it, rerun it, challenge it</h2>
         <div class="cta">
-          <a class="btn primary" href="https://github.com/c0ldskin/fitrah/blob/main/papers/hereditary-trust-paper-draft.md">Working paper draft</a>
+          <a class="btn primary" href="assets/fitrah-paper-draft.pdf">Working paper (PDF)</a>
           <a class="btn ghost" href="https://github.com/c0ldskin/fitrah#-results-honestly">Reproduce Stage 1</a>
           <a class="btn ghost" href="https://github.com/c0ldskin/fitrah/blob/main/research/threat-model.md">Threat model</a>
           <a class="btn ghost" href="https://github.com/c0ldskin/fitrah/blob/main/research/invariants.md">Invariants</a>
@@ -137,7 +155,7 @@
   <footer>
     <div class="wrap foot">
       <p><span class="arabic small" lang="ar">فطرة</span> <em>Fitrah</em> is Arabic for innate nature: the disposition a being is born with.</p>
-      <p>Maintained by <strong>Zeeshan Mehdi</strong>, Dubai · <a href="https://www.linkedin.com/in/zmehdi">LinkedIn</a> · <a href="https://github.com/c0ldskin/fitrah">GitHub</a> · <a href="./">Home</a> · <a href="inspiration.html">Inspiration</a> · MIT licensed</p>
+      <p>Maintained by <strong>Zeeshan Mehdi</strong>, Dubai · <a href="https://www.linkedin.com/in/zmehdi">LinkedIn</a> · <a href="https://github.com/c0ldskin/fitrah">GitHub</a> · <a href="./">Home</a> · <a href="research.html">Research</a> · <a href="inspiration.html">Inspiration</a> · <a href="ar/">العربية</a> · MIT licensed · Updated 2 November 2026</p>
     </div>
   </footer>
 </body>
