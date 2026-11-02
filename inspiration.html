@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inspiration · Fitrah</title>
+  <meta name="description" content="How ideas about trust and stewardship from Islamic thought (Fitrah, Amanah, Waqf, Ijazah, Isnad, Hisbah, Shura) map onto existing computer-science models, and where they might suggest new research questions for AI agents.">
+  <link rel="canonical" href="https://c0ldskin.github.io/fitrah/inspiration.html">
+  <meta property="og:title" content="Fitrah: old ideas about trust, tested against computer science">
+  <meta property="og:image" content="https://c0ldskin.github.io/fitrah/assets/social.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0A1228">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap nav">
+      <a class="brand" href="./"><img src="assets/logo.png" alt="" width="28" height="28">Fitrah</a>
+      <nav>
+        <a href="#mapping">Mapping</a>
+        <a href="#waqf">A candidate question</a>
+        <a href="findings.html">Findings</a>
+        <a href="ar/" lang="ar" hreflang="ar">العربية</a>
+        <a class="pill" href="./#collaborate">Collaborate</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap page-head">
+      <p class="eyebrow">Inspiration</p>
+      <h1>Old ideas about trust, tested against computer science</h1>
+      <p class="sub">Fitrah takes its name, and several research prompts, from Islamic thought about trust, stewardship and accountability. This page shows how each idea maps onto models computer science already has.</p>
+      <div class="callout"><strong>A rule we hold ourselves to:</strong> naming a familiar access-control technique after a beautiful concept doesn’t make it new. Every inspiration is checked against prior art first. These are human moral and legal teachings; none of them is a specification for software, and nothing here is a religious ruling.</div>
+    </section>
+
+    <section id="mapping" class="band">
+      <div class="wrap">
+        <p class="eyebrow">The mapping</p>
+        <h2>Each idea, and what computer science already knows</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Concept</th><th>The idea</th><th>Closest computer-science models</th><th>What it means for Fitrah</th></tr></thead>
+            <tbody>
+              <tr><td><span class="ar" lang="ar">فطرة</span>Fitrah</td><td>Innate nature; the disposition one is born with</td><td>Mandatory access control; policy reference monitors (Cedar, OPA)</td><td>The inherited core. Not new on its own.</td></tr>
+              <tr><td><span class="ar" lang="ar">أمانة</span>Amanah</td><td>A trust held on behalf of others, with accountability</td><td>Attribute-based access control, usage control (UCON), capability systems</td><td>The split between authority an agent can use and authority it may pass on. Responsibility here is not moral personhood.</td></tr>
+              <tr><td><span class="ar" lang="ar">وقف</span>Waqf</td><td>An endowment whose conditions outlast the people who administer it</td><td>UCON and XACML obligations, decentralised information-flow labels</td><td>A candidate question: obligations that survive an agent’s restart or replacement (below).</td></tr>
+              <tr><td><span class="ar" lang="ar">إجازة</span>Ijazah</td><td>Licence to teach, including permission to license others</td><td>SPKI/SDSI, macaroons, Biscuit, XACML delegation profile</td><td>Restricted delegation chains already exist. Not unique to authorised birth.</td></tr>
+              <tr><td><span class="ar" lang="ar">إسناد</span>Isnad</td><td>A chain of transmitters behind a report</td><td>W3C PROV, Verifiable Credentials, in-toto, SLSA</td><td>A signed chain shows who said what, not that it’s true (TC-26).</td></tr>
+              <tr><td><span class="ar" lang="ar">حسبة</span>Hisbah</td><td>Independent public scrutiny of conduct</td><td>Reference monitors, remote attestation verifiers (RFC 9334)</td><td>Keep enforcer and verifier separate. Already established practice.</td></tr>
+              <tr><td><span class="ar" lang="ar">شورى</span>Shura</td><td>Consultation before consequential decisions</td><td>Separation of duty, multi-party approval</td><td>A possible control for amending inherited rules. Not part of Lab 0.</td></tr>
+              <tr><td><span class="ar" lang="ar">معروف</span>Ma’ruf</td><td>Recognised good that takes precedence</td><td>Deny-overrides policy combination, mandatory access control</td><td>Higher limits override requests. Already reflected in Fitrah’s explicit allow rule.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note"><strong>Scale isn’t novelty either.</strong> Google’s Zanzibar already checks relationship-based permissions at enormous scale, and agent delegation is an active research area (IETF WIMSE and 2026 preprints). The bar for a new contribution is high.</p>
+      </div>
+    </section>
+
+    <section id="waqf" class="wrap">
+      <p class="eyebrow">A candidate research question</p>
+      <h2>Obligations that outlive the agent</h2>
+      <p class="muted">A waqf separates the people who administer an endowment from the conditions that govern it. That suggests a question for agents: when an agent restarts, is replaced or delegates, should the obligations attached to a resource survive, and can that be enforced?</p>
+      <div class="split" style="margin-top:24px">
+        <div class="card">
+          <h3>The question</h3>
+          <ul>
+            <li>Under crashes, retries, delegation, credential rotation and revocation, can resource obligations be preserved and enforced?</li>
+            <li>Example: a healthcare agent processes records for a declared purpose and delegates to a child that may restart. The purpose restriction must survive.</li>
+          </ul>
+        </div>
+        <div class="card gold">
+          <h3>How it would be tested fairly</h3>
+          <ul>
+            <li>Compare a strong usage-control broker with obligations against the same broker plus Fitrah’s hereditary rules, on identical fault traces.</li>
+            <li>If the strong broker achieves the same properties, report equivalence instead of renaming the same rules.</li>
+            <li>Only checkable resource operations: no claims about ethics or intent.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note"><strong>Interpretive limits.</strong> Waqf practice developed over centuries, with recognised and disputed adjustments, so “never amend” is not an accurate reading. Usage-control obligations also predate Fitrah. Whether this question leads anywhere new is open.</p>
+    </section>
+
+    <section class="band">
+      <div class="wrap collab">
+        <div>
+          <p class="eyebrow">Help wanted</p>
+          <h2>We need scholars as much as engineers</h2>
+          <p>This line of work needs review from a qualified scholar of Islamic jurisprudence for the sources, and a historian of waqf for the institutional history, alongside security researchers to challenge the computer-science side.</p>
+          <div class="cta">
+            <a class="btn primary" href="https://github.com/c0ldskin/fitrah/discussions/19">Get in touch</a>
+            <a class="btn ghost" href="findings.html">See the findings</a>
+          </div>
+        </div>
+        <div class="cite">
+          <p class="eyebrow">Sources on trust and stewardship</p>
+          <ul class="card" style="list-style:none;padding:20px 24px;margin:0">
+            <li><a href="https://quran.com/4/58">Qur’an 4:58</a> · <a href="https://quran.com/23/8">23:8</a> · <a href="https://quran.com/2/283">2:283</a></li>
+            <li><a href="https://sunnah.com/bukhari:7138">Sahih al-Bukhari 7138</a></li>
+            <li><a href="https://sunnah.com/bukhari/54/24">Sahih al-Bukhari 2737</a> · <a href="https://sunnah.com/muslim/25/21">Sahih Muslim 1632a</a> (the Khaybar endowment)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <p><span class="arabic small" lang="ar">فطرة</span> <em>Fitrah</em> is Arabic for innate nature: the disposition a being is born with.</p>
+      <p>Maintained by <strong>Zeeshan Mehdi</strong>, Dubai · <a href="https://www.linkedin.com/in/zmehdi">LinkedIn</a> · <a href="https://github.com/c0ldskin/fitrah">GitHub</a> · <a href="./">Home</a> · <a href="findings.html">Findings</a> · MIT licensed</p>
+    </div>
+  </footer>
+</body>
+</html>

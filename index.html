@@ -4,11 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fitrah: Hereditary Trust for Autonomous AI Agents</title>
-  <meta name="description" content="Fitrah (فطرة) is open research on whether AI agents can be born with trust they can't shed: a mandatory constitutional core, and authority that never exceeds what a parent may delegate. Enforced without relying on the model.">
+  <meta name="description" content="Fitrah (فطرة) is open research on whether AI agents can be born with trust they can't shed. Results, honest negatives, lessons learned and open questions. Currently paused and seeking collaborators.">
   <link rel="canonical" href="https://c0ldskin.github.io/fitrah/">
+  <link rel="alternate" hreflang="en" href="https://c0ldskin.github.io/fitrah/">
+  <link rel="alternate" hreflang="ar" href="https://c0ldskin.github.io/fitrah/ar/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Fitrah: Hereditary Trust for Autonomous AI Agents">
-  <meta property="og:description" content="Can an agent be born with trust it can't shed? Open research, first results, and a call for collaborators.">
+  <meta property="og:description" content="Can an agent be born with trust it can't shed? Results, honest negatives and open questions. Paused, seeking collaborators.">
   <meta property="og:image" content="https://c0ldskin.github.io/fitrah/assets/social.jpg">
   <meta property="og:url" content="https://c0ldskin.github.io/fitrah/">
   <meta name="twitter:card" content="summary_large_image">
@@ -34,12 +36,13 @@
 <body>
   <header class="top">
     <div class="wrap nav">
-      <a class="brand" href="#"><img src="assets/logo.png" alt="" width="28" height="28">Fitrah</a>
+      <a class="brand" href="./"><img src="assets/logo.png" alt="" width="28" height="28">Fitrah</a>
       <nav>
-        <a href="#question">Question</a>
         <a href="#results">Results</a>
-        <a href="#layers">Architecture</a>
-        <a href="#open">Open questions</a>
+        <a href="findings.html">Findings</a>
+        <a href="inspiration.html">Inspiration</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="ar/" lang="ar" hreflang="ar">العربية</a>
         <a class="pill" href="#collaborate">Collaborate</a>
       </nav>
     </div>
@@ -49,13 +52,14 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
+          <p class="status"><i></i>Research paused · seeking collaborators</p>
           <p class="arabic" lang="ar">فطرة</p>
           <h1>Fitrah</h1>
           <p class="lede">Hereditary trust for autonomous AI agents</p>
           <p class="sub">Can an agent be <em>born</em> with trust it can’t shed, and never hold more authority than its parent may delegate?</p>
           <div class="cta">
-            <a class="btn primary" href="https://github.com/c0ldskin/fitrah">Read the research</a>
-            <a class="btn ghost" href="#collaborate">Join as a collaborator</a>
+            <a class="btn primary" href="findings.html">See what we found</a>
+            <a class="btn ghost" href="#collaborate">Pick it up with us</a>
           </div>
           <p class="meta">Open research · Lab 0 · MIT licensed</p>
         </div>
@@ -117,64 +121,124 @@
 
     <section id="results" class="band">
       <div class="wrap">
-        <p class="eyebrow">First results</p>
-        <h2>Rules in the prompt changed nothing. Enforcement changed everything.</h2>
+        <p class="eyebrow">Results, honestly</p>
+        <h2>Enforcement beats prompts. Against strong brokers, the gap closes.</h2>
         <div class="stats">
-          <div><b>0</b><span>invalid births with enforcement<br><em>vs 10 without</em></span></div>
-          <div><b>0</b><span>core modifications<br><em>vs 4 without</em></span></div>
-          <div><b>0</b><span>protected-action bypasses<br><em>vs 3 without</em></span></div>
-          <div><b>0/6</b><span>legitimate cases blocked<br><em>no false blocks</em></span></div>
+          <div><b>0</b><span>invalid births with enforcement<br><em>vs 10 with rules only in the prompt</em></span></div>
+          <div><b>459k</b><span>transitions searched exhaustively<br><em>no counterexample, within bounds</em></span></div>
+          <div><b>0</b><span>extra states excluded vs a strong delegation broker<br><em>36 valid states each</em></span></div>
+          <div><b>1</b><span>run reported INVALID<br><em>kept as evidence, not hidden</em></span></div>
         </div>
         <img class="figure" src="assets/results.jpg" alt="Lab 0 Stage 1 chart: invalid child births 10, 10 and 0; core modifications 4, 4 and 0; protected-action bypasses 3, 3 and 0, for baseline, rules in model context, and Fitrah enforcement." width="1200" height="560" loading="lazy">
-        <p class="note"><strong>Scope, honestly:</strong> 26 scenarios against a scripted attacker (A0) in a deterministic harness, with byte-identical reruns and an independent verifier. Stage 2, with hostile code in a disposable VM, has passed its environment checks but is not complete.</p>
+        <div class="verdict">
+          <div class="holds">
+            <h3>What holds</h3>
+            <ul>
+              <li><strong>Rules in the model’s context changed nothing.</strong> Enforcement outside the model blocked every invalid birth, core change and bypass, with no false blocks (Stage 1).</li>
+              <li><strong>No counterexample</strong> across 100 generations, 2,000 generated histories and an exhaustive search of 6,742 states (Stage 1B, bounded).</li>
+              <li><strong>cgroup-v2 containment</strong> stopped every escape attempt that ordinary process-group termination missed (Stage 2, S65).</li>
+              <li><strong>Gating authority on a committed birth-to-instance binding</strong> closed a crash gap (E9).</li>
+            </ul>
+          </div>
+          <div class="open">
+            <h3>What doesn’t, yet</h3>
+            <ul>
+              <li><strong>No advantage over a strong delegation broker</strong> given the same trusted facts: 36 vs 36 valid states (E6). Lineage evidence isn’t distinctive either (E8).</li>
+              <li><strong>Signed logs prove consistency, not truth.</strong> A lying runtime can sign a consistent false history (TC-26, E4).</li>
+              <li><strong>Per-agent rules don’t compose.</strong> Two compliant agents can leak a secret together (E5).</li>
+              <li><strong>Stage 2 isn’t complete:</strong> the first full VM run returned INVALID_RUN.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="more"><a href="findings.html">Every result, experiment and lesson →</a></p>
       </div>
     </section>
 
-    <section id="layers" class="wrap">
-      <p class="eyebrow">Architecture</p>
-      <h2>Five layers of agent trust, one at a time</h2>
-      <p class="muted">Phase 1 focuses only on Layer 2: inherited authority has to hold before identity, attestation or federation can mean anything.</p>
-      <img class="figure" src="assets/layers.jpg" alt="Five layers: behavioural disposition; digital DNA and inherited authority (Phase 1, Lab 0); cryptographic identity and lineage; execution trust; inter-agent trust and federation." width="1200" height="520" loading="lazy">
+    <section id="lessons" class="wrap">
+      <p class="eyebrow">Lessons learned</p>
+      <h2>What building it taught us</h2>
+      <div class="lessons">
+        <div class="lesson"><b>A prompt is not a control.</b><p>Putting the rules in the model’s context made no measurable difference. Enforcement has to sit outside the model.</p><span class="src">Stage 1</span></div>
+        <div class="lesson"><b>Signed logs prove consistency, not truth.</b><p>Catching a lying runtime needs independent witnesses: birth witnesses, resource receipts, instance measurements.</p><span class="src">TC-26 · E4</span></div>
+        <div class="lesson"><b>Your verifier is attack surface too.</b><p>Stress-testing the runtime also found and fixed defects in the verifier that checks it.</p><span class="src">Stage 1B</span></div>
+        <div class="lesson"><b>Killing a process group isn’t containment.</b><p>Forked and detached children escape <code>killpg</code>. A cgroup-v2 boundary caught them all.</p><span class="src">Stage 2 · S65</span></div>
+        <div class="lesson"><b>Never retry an uncertain launch.</b><p>Retrying can give one birth two live agents. Fail closed while the outcome is unknown.</p><span class="src">E3</span></div>
+        <div class="lesson"><b>Compliant agents can still collude.</b><p>Safety for a population isn’t the sum of per-agent rules. It needs information-flow or group-level constraints.</p><span class="src">E5</span></div>
+      </div>
+      <p class="more"><a href="findings.html#lessons">All eleven lessons →</a></p>
     </section>
 
-    <section id="open" class="band">
+    <section id="roadmap" class="band">
       <div class="wrap">
-        <p class="eyebrow">Open questions</p>
-        <h2>18 questions we can’t answer yet</h2>
-        <div class="grid">
-          <a class="q" href="https://github.com/c0ldskin/fitrah/issues/2"><span class="tag">Good first challenge</span><b>OQ-02</b>What, specifically, is novel over macaroons, Biscuit, UCAN, SPKI and object-capability systems?</a>
-          <a class="q" href="https://github.com/c0ldskin/fitrah/issues/17"><span class="tag">Good first challenge</span><b>OQ-17</b>What hereditary property can Fitrah enforce that ordinary capability attenuation can’t represent?</a>
-          <a class="q" href="https://github.com/c0ldskin/fitrah/issues/18"><span class="tag">Good first challenge</span><b>OQ-18</b>Against a modern delegation broker, which invalid lineage states does only Fitrah exclude?</a>
-          <a class="q" href="https://github.com/c0ldskin/fitrah/issues/9"><b>OQ-09</b>How do guarantees compose when agents pass authority outside the spawn path, through collusion or siblings?</a>
-          <a class="q" href="https://github.com/c0ldskin/fitrah/issues/12"><b>OQ-12</b>Where must the root of trust live for birth binding to mean anything against a copied agent?</a>
-          <a class="q" href="https://github.com/c0ldskin/fitrah/issues/14"><b>OQ-14</b>How can an outsider verify events if the trusted runtime records a false but consistent history?</a>
+        <p class="eyebrow">Where it could go next</p>
+        <h2>Three candidate directions</h2>
+        <p class="muted">From the frontier gap assessment, ranked by scientific value and how much strong prior art already covers them. None is approved yet: each needs a fair, strongest-baseline comparison first.</p>
+        <div class="roadmap">
+          <div class="road"><span class="pillt go">Pursue</span><h3>Lifecycle assurance across runtimes</h3><p>A portable, verifiable chain from authorised birth to attested instance to external effect and audit, compared with standards-based deployments that aren’t composed.</p></div>
+          <div class="road"><span class="pillt q">Pursue as a question</span><h3>Population-level constraints</h3><p>Can a policy checked at the point of external effect reject harmful group histories that per-agent policies accept, without crippling legitimate work?</p></div>
+          <div class="road"><span class="pillt no">Reconsider</span><h3>Hereditary judgement</h3><p>Does verified lineage improve refusal and escalation beyond an equal persistent-policy baseline? The causal case is currently weak.</p></div>
         </div>
-        <p class="more"><a href="https://github.com/c0ldskin/fitrah/issues?q=is%3Aissue+is%3Aopen+label%3A%22open+question%22">See all 18 open questions →</a></p>
       </div>
     </section>
 
-    <section id="collaborate" class="wrap collab">
-      <div>
-        <p class="eyebrow">Collaborate</p>
-        <h2>Looking for people who like hard questions</h2>
-        <p>Fitrah is an open, falsifiable research programme. Negative results count, and “this already exists” is a welcome answer.</p>
-        <ul class="tags">
-          <li>Agent &amp; AI security</li><li>Capability systems</li><li>Applied cryptography</li><li>Formal methods</li>
-          <li>Attestation &amp; TEEs</li><li>Multi-agent systems</li><li>AI policy &amp; governance</li>
-        </ul>
-        <div class="cta">
-          <a class="btn primary" href="https://github.com/c0ldskin/fitrah/discussions/19">Introduce yourself</a>
-          <a class="btn ghost" href="https://github.com/c0ldskin/fitrah/blob/main/CONTRIBUTING.md">How we work</a>
-        </div>
+    <section id="inspiration" class="wrap">
+      <p class="eyebrow">Inspiration</p>
+      <h2>Old ideas about trust, tested against computer science</h2>
+      <p class="muted">Fitrah takes its name and several prompts from Islamic thought about trust and stewardship. We map each idea to existing computer-science models before claiming anything, so inspiration never gets mistaken for novelty.</p>
+      <ul class="chips">
+        <li><span lang="ar">فطرة</span>Fitrah</li><li><span lang="ar">أمانة</span>Amanah</li><li><span lang="ar">وقف</span>Waqf</li>
+        <li><span lang="ar">إجازة</span>Ijazah</li><li><span lang="ar">إسناد</span>Isnad</li><li><span lang="ar">حسبة</span>Hisbah</li><li><span lang="ar">شورى</span>Shura</li>
+      </ul>
+      <a class="btn ghost" href="inspiration.html">Read the mapping</a>
+    </section>
+
+    <section id="layers" class="band">
+      <div class="wrap">
+        <p class="eyebrow">Architecture</p>
+        <h2>Five layers of agent trust, one at a time</h2>
+        <p class="muted">Phase 1 focused only on Layer 2: inherited authority has to hold before identity, attestation or federation can mean anything.</p>
+        <img class="figure" src="assets/layers.jpg" alt="Five layers: behavioural disposition; digital DNA and inherited authority (Phase 1, Lab 0); cryptographic identity and lineage; execution trust; inter-agent trust and federation." width="1200" height="520" loading="lazy">
       </div>
-      <div class="cite">
-        <p class="eyebrow">Cite</p>
+    </section>
+
+    <section id="open" class="wrap">
+      <p class="eyebrow">Open questions</p>
+      <h2>18 questions we can’t answer yet</h2>
+      <div class="grid">
+        <a class="q" href="https://github.com/c0ldskin/fitrah/issues/17"><span class="tag">Good first challenge</span><b>OQ-17</b>What hereditary property can Fitrah enforce that ordinary capability attenuation can’t represent?</a>
+        <a class="q" href="https://github.com/c0ldskin/fitrah/issues/18"><span class="tag">Good first challenge</span><b>OQ-18</b>Against a modern delegation broker, which invalid lineage states does only Fitrah exclude?</a>
+        <a class="q" href="https://github.com/c0ldskin/fitrah/issues/2"><span class="tag">Good first challenge</span><b>OQ-02</b>What, specifically, is novel over macaroons, Biscuit, UCAN, SPKI and object-capability systems?</a>
+        <a class="q" href="https://github.com/c0ldskin/fitrah/issues/9"><b>OQ-09</b>How do guarantees compose when agents pass authority outside the spawn path, through collusion or siblings?</a>
+        <a class="q" href="https://github.com/c0ldskin/fitrah/issues/14"><b>OQ-14</b>How can an outsider verify events if the trusted runtime records a false but consistent history?</a>
+        <a class="q" href="https://github.com/c0ldskin/fitrah/issues/12"><b>OQ-12</b>Where must the root of trust live for birth binding to mean anything against a copied agent?</a>
+      </div>
+      <p class="more"><a href="https://github.com/c0ldskin/fitrah/issues?q=is%3Aissue+is%3Aopen+label%3A%22open+question%22">See all 18 open questions →</a></p>
+    </section>
+
+    <section id="collaborate" class="band">
+      <div class="wrap collab">
+        <div>
+          <p class="eyebrow">Collaborate</p>
+          <h2>Paused, not finished. Pick it up with us.</h2>
+          <p>Fitrah was paused on 23 October 2026, when research moved to problem-first discovery of how multi-agent workflows fail. By then its own fair comparisons had shown that modern delegation brokers can match its current rules, which made the open problems sharper than when it started: lifecycle assurance, population-level safety, and evidence that holds up against a lying runtime. If one of those is your field, the code, evidence and open questions are all here.</p>
+          <ul class="tags">
+            <li>Agent &amp; AI security</li><li>Capability systems</li><li>Applied cryptography</li><li>Formal methods</li>
+            <li>Attestation &amp; TEEs</li><li>Multi-agent systems</li><li>AI policy &amp; governance</li><li>Islamic jurisprudence &amp; history</li>
+          </ul>
+          <div class="cta">
+            <a class="btn primary" href="https://github.com/c0ldskin/fitrah/discussions/19">Introduce yourself</a>
+            <a class="btn ghost" href="https://github.com/c0ldskin/fitrah/blob/main/papers/hereditary-trust-paper-draft.md">Read the paper draft</a>
+          </div>
+        </div>
+        <div class="cite">
+          <p class="eyebrow">Cite</p>
 <pre><code>@software{mehdi_fitrah,
   author = {Mehdi, Zeeshan},
   title  = {Fitrah: Hereditary Trust for
             Autonomous AI Agents},
   url    = {https://github.com/c0ldskin/fitrah}
 }</code></pre>
+        </div>
       </div>
     </section>
   </main>
@@ -182,7 +246,7 @@
   <footer>
     <div class="wrap foot">
       <p><span class="arabic small" lang="ar">فطرة</span> <em>Fitrah</em> is Arabic for innate nature: the disposition a being is born with.</p>
-      <p>Maintained by <strong>Zeeshan Mehdi</strong>, Dubai · <a href="https://www.linkedin.com/in/zmehdi">LinkedIn</a> · <a href="https://github.com/c0ldskin/fitrah">GitHub</a> · MIT licensed</p>
+      <p>Maintained by <strong>Zeeshan Mehdi</strong>, Dubai · <a href="https://www.linkedin.com/in/zmehdi">LinkedIn</a> · <a href="https://github.com/c0ldskin/fitrah">GitHub</a> · <a href="findings.html">Findings</a> · <a href="inspiration.html">Inspiration</a> · <a href="ar/">العربية</a> · MIT licensed</p>
     </div>
   </footer>
 </body>
