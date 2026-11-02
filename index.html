@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fitrah: Hereditary Trust for Autonomous AI Agents</title>
+  <meta name="description" content="Fitrah (فطرة) is open research on whether AI agents can be born with trust they can't shed: a mandatory constitutional core, and authority that never exceeds what a parent may delegate. Enforced without relying on the model.">
+  <link rel="canonical" href="https://c0ldskin.github.io/fitrah/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fitrah: Hereditary Trust for Autonomous AI Agents">
+  <meta property="og:description" content="Can an agent be born with trust it can't shed? Open research, first results, and a call for collaborators.">
+  <meta property="og:image" content="https://c0ldskin.github.io/fitrah/assets/social.jpg">
+  <meta property="og:url" content="https://c0ldskin.github.io/fitrah/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0A1228">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ResearchProject",
+    "name": "Fitrah: Hereditary Trust for Autonomous AI Agents",
+    "alternateName": "فطرة",
+    "description": "Open research on whether autonomous AI agents can inherit a mandatory constitutional core and be prevented from receiving more authority than their parent may delegate.",
+    "url": "https://c0ldskin.github.io/fitrah/",
+    "founder": { "@type": "Person", "name": "Zeeshan Mehdi", "url": "https://www.linkedin.com/in/zmehdi" },
+    "sameAs": ["https://github.com/c0ldskin/fitrah"]
+  }
+  </script>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap nav">
+      <a class="brand" href="#"><img src="assets/logo.png" alt="" width="28" height="28">Fitrah</a>
+      <nav>
+        <a href="#question">Question</a>
+        <a href="#results">Results</a>
+        <a href="#layers">Architecture</a>
+        <a href="#open">Open questions</a>
+        <a class="pill" href="#collaborate">Collaborate</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="arabic" lang="ar">فطرة</p>
+          <h1>Fitrah</h1>
+          <p class="lede">Hereditary trust for autonomous AI agents</p>
+          <p class="sub">Can an agent be <em>born</em> with trust it can’t shed, and never hold more authority than its parent may delegate?</p>
+          <div class="cta">
+            <a class="btn primary" href="https://github.com/c0ldskin/fitrah">Read the research</a>
+            <a class="btn ghost" href="#collaborate">Join as a collaborator</a>
+          </div>
+          <p class="meta">Open research · Lab 0 · MIT licensed</p>
+        </div>
+        <!-- Lineage: genesis, two children, three valid grandchildren, one refused birth that tried to amplify authority. -->
+        <svg class="tree" viewBox="0 0 520 420" role="img" aria-label="A lineage of agents. Each child inherits the gold constitutional core and holds less authority than its parent. One child that tried to amplify its authority is refused.">
+          <g fill="none" stroke="#D4A853" stroke-opacity=".55" stroke-width="2">
+            <path d="M260 70 C260 135 140 135 140 200"/><path d="M260 70 C260 135 380 135 380 200"/>
+            <path d="M140 200 C140 265 70 265 70 330"/><path d="M140 200 C140 265 205 265 205 330"/>
+            <path d="M380 200 C380 265 315 265 315 330"/>
+          </g>
+          <path d="M380 200 C380 265 450 265 450 330" fill="none" stroke="#E8665A" stroke-opacity=".7" stroke-width="2" stroke-dasharray="6 6"/>
+          <g stroke="#D4A853" stroke-width="2.5" fill="#0A1228">
+            <circle cx="260" cy="70" r="40"/><circle cx="140" cy="200" r="32"/><circle cx="380" cy="200" r="32"/>
+            <circle cx="70" cy="330" r="25"/><circle cx="205" cy="330" r="25"/><circle cx="315" cy="330" r="25"/>
+          </g>
+          <g fill="#3FB8AF">
+            <circle cx="260" cy="70" r="28"/><circle cx="140" cy="200" r="18"/><circle cx="380" cy="200" r="18"/>
+            <circle cx="70" cy="330" r="10"/><circle cx="205" cy="330" r="10"/><circle cx="315" cy="330" r="10"/>
+          </g>
+          <circle cx="450" cy="330" r="25" fill="#E8665A" fill-opacity=".15" stroke="#E8665A" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <circle cx="450" cy="330" r="22" fill="#E8665A" fill-opacity=".55"/>
+          <path d="M442 322 L458 338 M458 322 L442 338" stroke="#F3EFE6" stroke-width="3" stroke-linecap="round"/>
+          <text x="260" y="18" class="tl">GENESIS</text>
+          <text x="450" y="385" class="tl refused">REFUSED</text>
+          <text x="450" y="403" class="tl refused small">amplified authority</text>
+        </svg>
+      </div>
+    </section>
+
+    <section id="question" class="band">
+      <div class="wrap narrow">
+        <p class="eyebrow">The question</p>
+        <blockquote>Can a child agent inherit a mandatory constitutional core, and be prevented from receiving more protected authority than its parent is authorised to delegate?</blockquote>
+        <p>As agents start to spawn other agents, delegate tasks and act across real systems, “the model was told not to” isn’t a security control. Fitrah separates <strong>what a model does</strong> from <strong>what it is allowed to do</strong>, and enforces the second with a trust substrate that works with <strong>no language model present</strong>.</p>
+      </div>
+      <div class="wrap split">
+        <div class="card">
+          <h3>The model may…</h3>
+          <ul><li>reason, learn and adapt</li><li>behave adversarially</li><li>try to spawn descendants</li><li>request any action</li></ul>
+        </div>
+        <div class="card gold">
+          <h3>The trust substrate decides…</h3>
+          <ul><li>which constitutional properties are mandatory</li><li>which authority the agent can exercise</li><li>what it may delegate, and what counts as a valid descendant</li><li>which protected actions actually execute</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="valid" class="wrap">
+      <p class="eyebrow">The hypothesis</p>
+      <h2>What makes a child agent valid</h2>
+      <ol class="rules">
+        <li><span>01</span>Its mandatory core is <strong>inherited</strong> from its lineage.</li>
+        <li><span>02</span>Its exercisable capabilities <strong>never exceed</strong> what its parent may delegate.</li>
+        <li><span>03</span>Its delegable authority <strong>cannot amplify</strong> across generations.</li>
+        <li><span>04</span>Protected execution happens only when <strong>both</strong> capability and constitutional policy allow it.</li>
+        <li><span>05</span>All of this stays enforceable with <strong>no LLM present</strong>.</li>
+      </ol>
+    </section>
+
+    <section id="results" class="band">
+      <div class="wrap">
+        <p class="eyebrow">First results</p>
+        <h2>Rules in the prompt changed nothing. Enforcement changed everything.</h2>
+        <div class="stats">
+          <div><b>0</b><span>invalid births with enforcement<br><em>vs 10 without</em></span></div>
+          <div><b>0</b><span>core modifications<br><em>vs 4 without</em></span></div>
+          <div><b>0</b><span>protected-action bypasses<br><em>vs 3 without</em></span></div>
+          <div><b>0/6</b><span>legitimate cases blocked<br><em>no false blocks</em></span></div>
+        </div>
+        <img class="figure" src="assets/results.jpg" alt="Lab 0 Stage 1 chart: invalid child births 10, 10 and 0; core modifications 4, 4 and 0; protected-action bypasses 3, 3 and 0, for baseline, rules in model context, and Fitrah enforcement." width="1200" height="560" loading="lazy">
+        <p class="note"><strong>Scope, honestly:</strong> 26 scenarios against a scripted attacker (A0) in a deterministic harness, with byte-identical reruns and an independent verifier. Stage 2, with hostile code in a disposable VM, has passed its environment checks but is not complete.</p>
+      </div>
+    </section>
+
+    <section id="layers" class="wrap">
+      <p class="eyebrow">Architecture</p>
+      <h2>Five layers of agent trust, one at a time</h2>
+      <p class="muted">Phase 1 focuses only on Layer 2: inherited authority has to hold before identity, attestation or federation can mean anything.</p>
+      <img class="figure" src="assets/layers.jpg" alt="Five layers: behavioural disposition; digital DNA and inherited authority (Phase 1, Lab 0); cryptographic identity and lineage; execution trust; inter-agent trust and federation." width="1200" height="520" loading="lazy">
+    </section>
+
+    <section id="open" class="band">
+      <div class="wrap">
+        <p class="eyebrow">Open questions</p>
+        <h2>18 questions we can’t answer yet</h2>
+        <div class="grid">
+          <a class="q" href="https://github.com/c0ldskin/fitrah/issues/2"><span class="tag">Good first challenge</span><b>OQ-02</b>What, specifically, is novel over macaroons, Biscuit, UCAN, SPKI and object-capability systems?</a>
+          <a class="q" href="https://github.com/c0ldskin/fitrah/issues/17"><span class="tag">Good first challenge</span><b>OQ-17</b>What hereditary property can Fitrah enforce that ordinary capability attenuation can’t represent?</a>
+          <a class="q" href="https://github.com/c0ldskin/fitrah/issues/18"><span class="tag">Good first challenge</span><b>OQ-18</b>Against a modern delegation broker, which invalid lineage states does only Fitrah exclude?</a>
+          <a class="q" href="https://github.com/c0ldskin/fitrah/issues/9"><b>OQ-09</b>How do guarantees compose when agents pass authority outside the spawn path, through collusion or siblings?</a>
+          <a class="q" href="https://github.com/c0ldskin/fitrah/issues/12"><b>OQ-12</b>Where must the root of trust live for birth binding to mean anything against a copied agent?</a>
+          <a class="q" href="https://github.com/c0ldskin/fitrah/issues/14"><b>OQ-14</b>How can an outsider verify events if the trusted runtime records a false but consistent history?</a>
+        </div>
+        <p class="more"><a href="https://github.com/c0ldskin/fitrah/issues?q=is%3Aissue+is%3Aopen+label%3A%22open+question%22">See all 18 open questions →</a></p>
+      </div>
+    </section>
+
+    <section id="collaborate" class="wrap collab">
+      <div>
+        <p class="eyebrow">Collaborate</p>
+        <h2>Looking for people who like hard questions</h2>
+        <p>Fitrah is an open, falsifiable research programme. Negative results count, and “this already exists” is a welcome answer.</p>
+        <ul class="tags">
+          <li>Agent &amp; AI security</li><li>Capability systems</li><li>Applied cryptography</li><li>Formal methods</li>
+          <li>Attestation &amp; TEEs</li><li>Multi-agent systems</li><li>AI policy &amp; governance</li>
+        </ul>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/c0ldskin/fitrah/discussions/19">Introduce yourself</a>
+          <a class="btn ghost" href="https://github.com/c0ldskin/fitrah/blob/main/CONTRIBUTING.md">How we work</a>
+        </div>
+      </div>
+      <div class="cite">
+        <p class="eyebrow">Cite</p>
+<pre><code>@software{mehdi_fitrah,
+  author = {Mehdi, Zeeshan},
+  title  = {Fitrah: Hereditary Trust for
+            Autonomous AI Agents},
+  url    = {https://github.com/c0ldskin/fitrah}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <p><span class="arabic small" lang="ar">فطرة</span> <em>Fitrah</em> is Arabic for innate nature: the disposition a being is born with.</p>
+      <p>Maintained by <strong>Zeeshan Mehdi</strong>, Dubai · <a href="https://www.linkedin.com/in/zmehdi">LinkedIn</a> · <a href="https://github.com/c0ldskin/fitrah">GitHub</a> · MIT licensed</p>
+    </div>
+  </footer>
+</body>
+</html>
