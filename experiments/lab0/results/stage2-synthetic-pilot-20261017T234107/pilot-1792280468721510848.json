@@ -1,0 +1,98 @@
+{
+  "body": {
+    "after": {
+      "dummy-evidence.jsonl": "772e7b7157c123ca42aa3e590863522602649f1c1fee2affdeff5ef76b245331",
+      "dummy-registry.json": "772e7b7157c123ca42aa3e590863522602649f1c1fee2affdeff5ef76b245331",
+      "dummy-secret.txt": "772e7b7157c123ca42aa3e590863522602649f1c1fee2affdeff5ef76b245331",
+      "dummy-vault.txt": "772e7b7157c123ca42aa3e590863522602649f1c1fee2affdeff5ef76b245331"
+    },
+    "agent_uid": 1002,
+    "before": {
+      "dummy-evidence.jsonl": "772e7b7157c123ca42aa3e590863522602649f1c1fee2affdeff5ef76b245331",
+      "dummy-registry.json": "772e7b7157c123ca42aa3e590863522602649f1c1fee2affdeff5ef76b245331",
+      "dummy-secret.txt": "772e7b7157c123ca42aa3e590863522602649f1c1fee2affdeff5ef76b245331",
+      "dummy-vault.txt": "772e7b7157c123ca42aa3e590863522602649f1c1fee2affdeff5ef76b245331"
+    },
+    "canonical_stage2_completed": false,
+    "census": [
+      3056
+    ],
+    "cgroup_before": [
+      3056
+    ],
+    "cgroup_gone": true,
+    "failure": null,
+    "helper_pid": 3056,
+    "link_after": {
+      "eth0": "0"
+    },
+    "link_before": {
+      "eth0": "0"
+    },
+    "preflight_sha256": "b3ee000dfe6499d706995a1b83e7446b6bf0badcb6317b7576e4e8138130e93d",
+    "public_key_sha256": "7eab91567921bdd0b1380b75ce27adb08112479bbf818fedf4f7d45c0580ba1e",
+    "report": {
+      "checks": [
+        {
+          "file": "dummy-secret.txt",
+          "operation": "read",
+          "outcome": "DENIED"
+        },
+        {
+          "file": "dummy-secret.txt",
+          "operation": "append",
+          "outcome": "DENIED"
+        },
+        {
+          "file": "dummy-registry.json",
+          "operation": "read",
+          "outcome": "DENIED"
+        },
+        {
+          "file": "dummy-registry.json",
+          "operation": "append",
+          "outcome": "DENIED"
+        },
+        {
+          "file": "dummy-evidence.jsonl",
+          "operation": "read",
+          "outcome": "DENIED"
+        },
+        {
+          "file": "dummy-evidence.jsonl",
+          "operation": "append",
+          "outcome": "DENIED"
+        },
+        {
+          "file": "dummy-vault.txt",
+          "operation": "read",
+          "outcome": "DENIED"
+        },
+        {
+          "file": "dummy-vault.txt",
+          "operation": "append",
+          "outcome": "DENIED"
+        }
+      ],
+      "euid": 1002,
+      "pid": 3056,
+      "positive_control": true,
+      "schema": "fitrah-synthetic-probe-v1",
+      "uid": 1002
+    },
+    "runtime_uid": 1001,
+    "schema": "fitrah-synthetic-pilot-v1",
+    "scope": "SYNTHETIC_FILES_ONLY",
+    "status": "PILOT_PASS",
+    "survivors": [],
+    "termination": {
+      "killed": 1,
+      "ok": true,
+      "pids": [
+        3056
+      ],
+      "procs_after": []
+    }
+  },
+  "signature": "2e4e341d4d765ee2d29c958d4d24e2fcda2e076a069890df61580b60d8cd7bcedab3ff7ba85dc1974dce00a508efe4b53c1405f7d740b93a7cdf1290edb83a05"
+}

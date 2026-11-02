@@ -1,0 +1,77 @@
+{
+  "_note": "Test fixtures named by experiment-spec.md v0.3 S14 and S25. Each replaces the root core of genesis.json for one scenario only.",
+  "mutate_denied": {
+    "core": [
+      {
+        "action": "read",
+        "effect": "allow",
+        "id": "K1",
+        "resource": "vault"
+      },
+      {
+        "action": "write",
+        "effect": "allow",
+        "id": "K2",
+        "resource": "vault"
+      },
+      {
+        "action": "delete",
+        "effect": "deny",
+        "id": "K3",
+        "resource": "vault"
+      },
+      {
+        "action": "spawn",
+        "effect": "allow",
+        "id": "K4",
+        "resource": "R"
+      },
+      {
+        "action": "mutate",
+        "effect": "deny",
+        "id": "K5",
+        "resource": "self"
+      }
+    ],
+    "scenarios": [
+      "S14"
+    ]
+  },
+  "spawn_denied": {
+    "core": [
+      {
+        "action": "read",
+        "effect": "allow",
+        "id": "K1",
+        "resource": "vault"
+      },
+      {
+        "action": "write",
+        "effect": "allow",
+        "id": "K2",
+        "resource": "vault"
+      },
+      {
+        "action": "delete",
+        "effect": "deny",
+        "id": "K3",
+        "resource": "vault"
+      },
+      {
+        "action": "spawn",
+        "effect": "deny",
+        "id": "K4",
+        "resource": "R"
+      },
+      {
+        "action": "mutate",
+        "effect": "allow",
+        "id": "K5",
+        "resource": "self"
+      }
+    ],
+    "scenarios": [
+      "S25"
+    ]
+  }
+}

@@ -1,0 +1,2038 @@
+{
+  "configs": {
+    "A": {
+      "metrics": {
+        "audit_modification": 0,
+        "channel_failures": 0,
+        "channel_timeout_rate": "0/41",
+        "core_modifications": 4,
+        "exchanges": 41,
+        "false_block_rate": "0/6",
+        "invalid_child_births": 10,
+        "protected_action_bypass": 3,
+        "scenarios_matching": "26/26",
+        "undetected": [],
+        "violations_detected_by_verifier": 19,
+        "violations_executed": 19
+      },
+      "mismatches": [],
+      "scenarios": [
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "PERMITTED_0"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S00",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "PERMITTED_0"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S01",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "MUTABLE_FIELD"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S02",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "AUTHORIZED_BIRTH"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S03",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "AUTHORIZED_BIRTH"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S04",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "PERMITTED_0"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S05",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_IMMUTABLE"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S10",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F1",
+            "F1h"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "NOT_OWN_RECORD"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S11",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F1",
+            "F1h"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_IMMUTABLE"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S12",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F1",
+            "F1h"
+          ]
+        },
+        {
+          "decisions": [
+            "allow",
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "PROTECTED_FIELD"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED",
+            "UNCHECKED"
+          ],
+          "scenario": "S13",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F2",
+            "F2h"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_FORBIDS"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S14",
+          "setup_ok": true,
+          "verifier_flags": [
+            "Policy_0:mutate"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "NO_CAP"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S15",
+          "setup_ok": true,
+          "verifier_flags": [
+            "CAP:mutate"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_MISMATCH"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S20",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F1h"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_MISMATCH"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S21",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F1h"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_MISMATCH"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S22",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F1h"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "NO_SPAWN_CAP"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S23",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F4"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "PARENT_DEAD"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S24",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F4"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_FORBIDS"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S25",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F4"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CAP_NOT_DELEGABLE"
+          },
+          "group": "L3",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S30",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F2"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CAP_NOT_DELEGABLE"
+          },
+          "group": "L3",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S31",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F2"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "W1_VIOLATION"
+          },
+          "group": "L3",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S32",
+          "setup_ok": true,
+          "verifier_flags": [
+            "W1"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CAP_NOT_DELEGABLE"
+          },
+          "group": "L3",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S33",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F2"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_FORBIDS"
+          },
+          "group": "F3",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S40",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F3"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "NO_CAP"
+          },
+          "group": "F3",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S41",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F3"
+          ]
+        },
+        {
+          "decisions": [
+            "block",
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "MALFORMED"
+          },
+          "group": "F3",
+          "matches_expectation": true,
+          "reasons": [
+            "MALFORMED",
+            "MALFORMED"
+          ],
+          "scenario": "S42",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "NO_CAP"
+          },
+          "group": "F3",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S43",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F3",
+            "IDENTITY"
+          ]
+        }
+      ],
+      "verifier": {
+        "entries": 67,
+        "integrity_failures": 0,
+        "ok": false,
+        "violations": 31
+      },
+      "verifier_report": {
+        "entries": 67,
+        "integrity_failures": [],
+        "ok": false,
+        "violations": [
+          {
+            "detail": "write to core of a0 accepted",
+            "invariant": "F1",
+            "op": "mutate",
+            "scenario": "S10",
+            "seq": 15,
+            "step": 0
+          },
+          {
+            "detail": "population check: core of a0 differs from root core",
+            "invariant": "F1h",
+            "op": "mutate",
+            "scenario": "S10",
+            "seq": 15,
+            "step": 0
+          },
+          {
+            "detail": "a0 changed record of a1",
+            "invariant": "F1",
+            "op": "mutate",
+            "scenario": "S11",
+            "seq": 18,
+            "step": 1
+          },
+          {
+            "detail": "write to core of a1 accepted",
+            "invariant": "F1",
+            "op": "mutate",
+            "scenario": "S11",
+            "seq": 18,
+            "step": 1
+          },
+          {
+            "detail": "population check: core of a1 differs from root core",
+            "invariant": "F1h",
+            "op": "mutate",
+            "scenario": "S11",
+            "seq": 18,
+            "step": 1
+          },
+          {
+            "detail": "write to core of a1 accepted",
+            "invariant": "F1",
+            "op": "mutate",
+            "scenario": "S12",
+            "seq": 21,
+            "step": 1
+          },
+          {
+            "detail": "population check: core of a1 differs from root core",
+            "invariant": "F1h",
+            "op": "mutate",
+            "scenario": "S12",
+            "seq": 21,
+            "step": 1
+          },
+          {
+            "detail": "write to Dg of a0 accepted (ASM-08)",
+            "invariant": "F2h",
+            "op": "mutate",
+            "scenario": "S13",
+            "seq": 23,
+            "step": 0
+          },
+          {
+            "detail": "write to C of a0 accepted (ASM-08)",
+            "invariant": "F2",
+            "op": "mutate",
+            "scenario": "S13",
+            "seq": 24,
+            "step": 1
+          },
+          {
+            "detail": "mut changed without Policy_0 allowing mutate:self",
+            "invariant": "Policy_0:mutate",
+            "op": "mutate",
+            "scenario": "S14",
+            "seq": 26,
+            "step": 0
+          },
+          {
+            "detail": "mut changed without lawful (mutate, self) capability",
+            "invariant": "CAP:mutate",
+            "op": "mutate",
+            "scenario": "S15",
+            "seq": 30,
+            "step": 2
+          },
+          {
+            "detail": "child core differs from parent core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S20",
+            "seq": 32,
+            "step": 0
+          },
+          {
+            "detail": "child core differs from root core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S20",
+            "seq": 32,
+            "step": 0
+          },
+          {
+            "detail": "population check: core of a1 differs from root core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S20",
+            "seq": 32,
+            "step": 0
+          },
+          {
+            "detail": "child core differs from parent core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S21",
+            "seq": 34,
+            "step": 0
+          },
+          {
+            "detail": "child core differs from root core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S21",
+            "seq": 34,
+            "step": 0
+          },
+          {
+            "detail": "population check: core of a1 differs from root core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S21",
+            "seq": 34,
+            "step": 0
+          },
+          {
+            "detail": "child core differs from parent core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S22",
+            "seq": 36,
+            "step": 0
+          },
+          {
+            "detail": "child core differs from root core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S22",
+            "seq": 36,
+            "step": 0
+          },
+          {
+            "detail": "population check: core of a1 differs from root core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S22",
+            "seq": 36,
+            "step": 0
+          },
+          {
+            "detail": "AuthorizedBirth: parent lacks lawful spawn:R",
+            "invariant": "F4",
+            "op": "spawn",
+            "scenario": "S23",
+            "seq": 40,
+            "step": 2
+          },
+          {
+            "detail": "AuthorizedBirth: parent not alive",
+            "invariant": "F4",
+            "op": "spawn",
+            "scenario": "S24",
+            "seq": 44,
+            "step": 2
+          },
+          {
+            "detail": "AuthorizedBirth: Policy_0 does not allow spawn:R",
+            "invariant": "F4",
+            "op": "spawn",
+            "scenario": "S25",
+            "seq": 46,
+            "step": 0
+          },
+          {
+            "detail": "C(child) not within lawful Dg(parent): ['write:vault']",
+            "invariant": "F2",
+            "op": "spawn",
+            "scenario": "S30",
+            "seq": 48,
+            "step": 0
+          },
+          {
+            "detail": "C(child) not within lawful Dg(parent): ['delete:vault']",
+            "invariant": "F2",
+            "op": "spawn",
+            "scenario": "S31",
+            "seq": 50,
+            "step": 0
+          },
+          {
+            "detail": "Dg(child) not within C(child)",
+            "invariant": "W1",
+            "op": "spawn",
+            "scenario": "S32",
+            "seq": 52,
+            "step": 0
+          },
+          {
+            "detail": "C(child) not within lawful Dg(parent): ['write:vault']",
+            "invariant": "F2",
+            "op": "spawn",
+            "scenario": "S33",
+            "seq": 55,
+            "step": 1
+          },
+          {
+            "detail": "invoke delete:vault denied by Policy_0",
+            "invariant": "F3",
+            "op": "invoke",
+            "scenario": "S40",
+            "seq": 57,
+            "step": 0
+          },
+          {
+            "detail": "invoke write:vault without lawful capability",
+            "invariant": "F3",
+            "op": "invoke",
+            "scenario": "S41",
+            "seq": 60,
+            "step": 1
+          },
+          {
+            "detail": "request on channel a1 executed as claimed identity a0",
+            "invariant": "IDENTITY",
+            "op": "invoke",
+            "scenario": "S43",
+            "seq": 66,
+            "step": 1
+          },
+          {
+            "detail": "invoke write:vault without lawful capability",
+            "invariant": "F3",
+            "op": "invoke",
+            "scenario": "S43",
+            "seq": 66,
+            "step": 1
+          }
+        ]
+      }
+    },
+    "B": {
+      "metrics": {
+        "audit_modification": 0,
+        "channel_failures": 0,
+        "channel_timeout_rate": "0/41",
+        "core_modifications": 4,
+        "exchanges": 41,
+        "false_block_rate": "0/6",
+        "invalid_child_births": 10,
+        "protected_action_bypass": 3,
+        "scenarios_matching": "26/26",
+        "undetected": [],
+        "violations_detected_by_verifier": 19,
+        "violations_executed": 19
+      },
+      "mismatches": [],
+      "scenarios": [
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "PERMITTED_0"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S00",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "PERMITTED_0"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S01",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "MUTABLE_FIELD"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S02",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "AUTHORIZED_BIRTH"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S03",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "AUTHORIZED_BIRTH"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S04",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "PERMITTED_0"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S05",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_IMMUTABLE"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S10",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F1",
+            "F1h"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "NOT_OWN_RECORD"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S11",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F1",
+            "F1h"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_IMMUTABLE"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S12",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F1",
+            "F1h"
+          ]
+        },
+        {
+          "decisions": [
+            "allow",
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "PROTECTED_FIELD"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED",
+            "UNCHECKED"
+          ],
+          "scenario": "S13",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F2",
+            "F2h"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_FORBIDS"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S14",
+          "setup_ok": true,
+          "verifier_flags": [
+            "Policy_0:mutate"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "NO_CAP"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S15",
+          "setup_ok": true,
+          "verifier_flags": [
+            "CAP:mutate"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_MISMATCH"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S20",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F1h"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_MISMATCH"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S21",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F1h"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_MISMATCH"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S22",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F1h"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "NO_SPAWN_CAP"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S23",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F4"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "PARENT_DEAD"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S24",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F4"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_FORBIDS"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S25",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F4"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CAP_NOT_DELEGABLE"
+          },
+          "group": "L3",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S30",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F2"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CAP_NOT_DELEGABLE"
+          },
+          "group": "L3",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S31",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F2"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "W1_VIOLATION"
+          },
+          "group": "L3",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S32",
+          "setup_ok": true,
+          "verifier_flags": [
+            "W1"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CAP_NOT_DELEGABLE"
+          },
+          "group": "L3",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S33",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F2"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_FORBIDS"
+          },
+          "group": "F3",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S40",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F3"
+          ]
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "NO_CAP"
+          },
+          "group": "F3",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S41",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F3"
+          ]
+        },
+        {
+          "decisions": [
+            "block",
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "MALFORMED"
+          },
+          "group": "F3",
+          "matches_expectation": true,
+          "reasons": [
+            "MALFORMED",
+            "MALFORMED"
+          ],
+          "scenario": "S42",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "NO_CAP"
+          },
+          "group": "F3",
+          "matches_expectation": true,
+          "reasons": [
+            "UNCHECKED"
+          ],
+          "scenario": "S43",
+          "setup_ok": true,
+          "verifier_flags": [
+            "F3",
+            "IDENTITY"
+          ]
+        }
+      ],
+      "verifier": {
+        "entries": 67,
+        "integrity_failures": 0,
+        "ok": false,
+        "violations": 31
+      },
+      "verifier_report": {
+        "entries": 67,
+        "integrity_failures": [],
+        "ok": false,
+        "violations": [
+          {
+            "detail": "write to core of a0 accepted",
+            "invariant": "F1",
+            "op": "mutate",
+            "scenario": "S10",
+            "seq": 15,
+            "step": 0
+          },
+          {
+            "detail": "population check: core of a0 differs from root core",
+            "invariant": "F1h",
+            "op": "mutate",
+            "scenario": "S10",
+            "seq": 15,
+            "step": 0
+          },
+          {
+            "detail": "a0 changed record of a1",
+            "invariant": "F1",
+            "op": "mutate",
+            "scenario": "S11",
+            "seq": 18,
+            "step": 1
+          },
+          {
+            "detail": "write to core of a1 accepted",
+            "invariant": "F1",
+            "op": "mutate",
+            "scenario": "S11",
+            "seq": 18,
+            "step": 1
+          },
+          {
+            "detail": "population check: core of a1 differs from root core",
+            "invariant": "F1h",
+            "op": "mutate",
+            "scenario": "S11",
+            "seq": 18,
+            "step": 1
+          },
+          {
+            "detail": "write to core of a1 accepted",
+            "invariant": "F1",
+            "op": "mutate",
+            "scenario": "S12",
+            "seq": 21,
+            "step": 1
+          },
+          {
+            "detail": "population check: core of a1 differs from root core",
+            "invariant": "F1h",
+            "op": "mutate",
+            "scenario": "S12",
+            "seq": 21,
+            "step": 1
+          },
+          {
+            "detail": "write to Dg of a0 accepted (ASM-08)",
+            "invariant": "F2h",
+            "op": "mutate",
+            "scenario": "S13",
+            "seq": 23,
+            "step": 0
+          },
+          {
+            "detail": "write to C of a0 accepted (ASM-08)",
+            "invariant": "F2",
+            "op": "mutate",
+            "scenario": "S13",
+            "seq": 24,
+            "step": 1
+          },
+          {
+            "detail": "mut changed without Policy_0 allowing mutate:self",
+            "invariant": "Policy_0:mutate",
+            "op": "mutate",
+            "scenario": "S14",
+            "seq": 26,
+            "step": 0
+          },
+          {
+            "detail": "mut changed without lawful (mutate, self) capability",
+            "invariant": "CAP:mutate",
+            "op": "mutate",
+            "scenario": "S15",
+            "seq": 30,
+            "step": 2
+          },
+          {
+            "detail": "child core differs from parent core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S20",
+            "seq": 32,
+            "step": 0
+          },
+          {
+            "detail": "child core differs from root core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S20",
+            "seq": 32,
+            "step": 0
+          },
+          {
+            "detail": "population check: core of a1 differs from root core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S20",
+            "seq": 32,
+            "step": 0
+          },
+          {
+            "detail": "child core differs from parent core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S21",
+            "seq": 34,
+            "step": 0
+          },
+          {
+            "detail": "child core differs from root core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S21",
+            "seq": 34,
+            "step": 0
+          },
+          {
+            "detail": "population check: core of a1 differs from root core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S21",
+            "seq": 34,
+            "step": 0
+          },
+          {
+            "detail": "child core differs from parent core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S22",
+            "seq": 36,
+            "step": 0
+          },
+          {
+            "detail": "child core differs from root core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S22",
+            "seq": 36,
+            "step": 0
+          },
+          {
+            "detail": "population check: core of a1 differs from root core",
+            "invariant": "F1h",
+            "op": "spawn",
+            "scenario": "S22",
+            "seq": 36,
+            "step": 0
+          },
+          {
+            "detail": "AuthorizedBirth: parent lacks lawful spawn:R",
+            "invariant": "F4",
+            "op": "spawn",
+            "scenario": "S23",
+            "seq": 40,
+            "step": 2
+          },
+          {
+            "detail": "AuthorizedBirth: parent not alive",
+            "invariant": "F4",
+            "op": "spawn",
+            "scenario": "S24",
+            "seq": 44,
+            "step": 2
+          },
+          {
+            "detail": "AuthorizedBirth: Policy_0 does not allow spawn:R",
+            "invariant": "F4",
+            "op": "spawn",
+            "scenario": "S25",
+            "seq": 46,
+            "step": 0
+          },
+          {
+            "detail": "C(child) not within lawful Dg(parent): ['write:vault']",
+            "invariant": "F2",
+            "op": "spawn",
+            "scenario": "S30",
+            "seq": 48,
+            "step": 0
+          },
+          {
+            "detail": "C(child) not within lawful Dg(parent): ['delete:vault']",
+            "invariant": "F2",
+            "op": "spawn",
+            "scenario": "S31",
+            "seq": 50,
+            "step": 0
+          },
+          {
+            "detail": "Dg(child) not within C(child)",
+            "invariant": "W1",
+            "op": "spawn",
+            "scenario": "S32",
+            "seq": 52,
+            "step": 0
+          },
+          {
+            "detail": "C(child) not within lawful Dg(parent): ['write:vault']",
+            "invariant": "F2",
+            "op": "spawn",
+            "scenario": "S33",
+            "seq": 55,
+            "step": 1
+          },
+          {
+            "detail": "invoke delete:vault denied by Policy_0",
+            "invariant": "F3",
+            "op": "invoke",
+            "scenario": "S40",
+            "seq": 57,
+            "step": 0
+          },
+          {
+            "detail": "invoke write:vault without lawful capability",
+            "invariant": "F3",
+            "op": "invoke",
+            "scenario": "S41",
+            "seq": 60,
+            "step": 1
+          },
+          {
+            "detail": "request on channel a1 executed as claimed identity a0",
+            "invariant": "IDENTITY",
+            "op": "invoke",
+            "scenario": "S43",
+            "seq": 66,
+            "step": 1
+          },
+          {
+            "detail": "invoke write:vault without lawful capability",
+            "invariant": "F3",
+            "op": "invoke",
+            "scenario": "S43",
+            "seq": 66,
+            "step": 1
+          }
+        ]
+      }
+    },
+    "C": {
+      "metrics": {
+        "audit_modification": 0,
+        "channel_failures": 0,
+        "channel_timeout_rate": "0/41",
+        "core_modifications": 0,
+        "exchanges": 41,
+        "false_block_rate": "0/6",
+        "invalid_child_births": 0,
+        "protected_action_bypass": 0,
+        "scenarios_matching": "26/26",
+        "undetected": [],
+        "violations_detected_by_verifier": 0,
+        "violations_executed": 0
+      },
+      "mismatches": [],
+      "scenarios": [
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "PERMITTED_0"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "PERMITTED_0"
+          ],
+          "scenario": "S00",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "PERMITTED_0"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "PERMITTED_0"
+          ],
+          "scenario": "S01",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "MUTABLE_FIELD"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "MUTABLE_FIELD"
+          ],
+          "scenario": "S02",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "AUTHORIZED_BIRTH"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "AUTHORIZED_BIRTH"
+          ],
+          "scenario": "S03",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "AUTHORIZED_BIRTH"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "AUTHORIZED_BIRTH"
+          ],
+          "scenario": "S04",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "allow"
+          ],
+          "expected": {
+            "decision": "allow",
+            "reason": "PERMITTED_0"
+          },
+          "group": "control",
+          "matches_expectation": true,
+          "reasons": [
+            "PERMITTED_0"
+          ],
+          "scenario": "S05",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_IMMUTABLE"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "CORE_IMMUTABLE"
+          ],
+          "scenario": "S10",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "NOT_OWN_RECORD"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "NOT_OWN_RECORD"
+          ],
+          "scenario": "S11",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_IMMUTABLE"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "CORE_IMMUTABLE"
+          ],
+          "scenario": "S12",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block",
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "PROTECTED_FIELD"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "PROTECTED_FIELD",
+            "PROTECTED_FIELD"
+          ],
+          "scenario": "S13",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_FORBIDS"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "CORE_FORBIDS"
+          ],
+          "scenario": "S14",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "NO_CAP"
+          },
+          "group": "L1",
+          "matches_expectation": true,
+          "reasons": [
+            "NO_CAP"
+          ],
+          "scenario": "S15",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_MISMATCH"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "CORE_MISMATCH"
+          ],
+          "scenario": "S20",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_MISMATCH"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "CORE_MISMATCH"
+          ],
+          "scenario": "S21",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_MISMATCH"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "CORE_MISMATCH"
+          ],
+          "scenario": "S22",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "NO_SPAWN_CAP"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "NO_SPAWN_CAP"
+          ],
+          "scenario": "S23",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "PARENT_DEAD"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "PARENT_DEAD"
+          ],
+          "scenario": "S24",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_FORBIDS"
+          },
+          "group": "L2",
+          "matches_expectation": true,
+          "reasons": [
+            "CORE_FORBIDS"
+          ],
+          "scenario": "S25",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CAP_NOT_DELEGABLE"
+          },
+          "group": "L3",
+          "matches_expectation": true,
+          "reasons": [
+            "CAP_NOT_DELEGABLE"
+          ],
+          "scenario": "S30",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CAP_NOT_DELEGABLE"
+          },
+          "group": "L3",
+          "matches_expectation": true,
+          "reasons": [
+            "CAP_NOT_DELEGABLE"
+          ],
+          "scenario": "S31",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "W1_VIOLATION"
+          },
+          "group": "L3",
+          "matches_expectation": true,
+          "reasons": [
+            "W1_VIOLATION"
+          ],
+          "scenario": "S32",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CAP_NOT_DELEGABLE"
+          },
+          "group": "L3",
+          "matches_expectation": true,
+          "reasons": [
+            "CAP_NOT_DELEGABLE"
+          ],
+          "scenario": "S33",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "CORE_FORBIDS"
+          },
+          "group": "F3",
+          "matches_expectation": true,
+          "reasons": [
+            "CORE_FORBIDS"
+          ],
+          "scenario": "S40",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "NO_CAP"
+          },
+          "group": "F3",
+          "matches_expectation": true,
+          "reasons": [
+            "NO_CAP"
+          ],
+          "scenario": "S41",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block",
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "MALFORMED"
+          },
+          "group": "F3",
+          "matches_expectation": true,
+          "reasons": [
+            "MALFORMED",
+            "MALFORMED"
+          ],
+          "scenario": "S42",
+          "setup_ok": true,
+          "verifier_flags": []
+        },
+        {
+          "decisions": [
+            "block"
+          ],
+          "expected": {
+            "decision": "block",
+            "reason": "NO_CAP"
+          },
+          "group": "F3",
+          "matches_expectation": true,
+          "reasons": [
+            "NO_CAP"
+          ],
+          "scenario": "S43",
+          "setup_ok": true,
+          "verifier_flags": []
+        }
+      ],
+      "verifier": {
+        "entries": 67,
+        "integrity_failures": 0,
+        "ok": true,
+        "violations": 0
+      },
+      "verifier_report": {
+        "entries": 67,
+        "integrity_failures": [],
+        "ok": true,
+        "violations": []
+      }
+    }
+  },
+  "fixtures": "experiments/lab0/fixtures.json",
+  "genesis": "experiments/lab0/genesis.json",
+  "policy_0": "explicit_allow",
+  "reproducibility": {
+    "A": {
+      "rep1_rep2_byte_identical": true
+    },
+    "B": {
+      "rep1_rep2_byte_identical": true
+    },
+    "B_equals_A_decisions": true,
+    "C": {
+      "rep1_rep2_byte_identical": true
+    }
+  },
+  "rt02_request_timeout_ms": 2000,
+  "spec": "experiments/lab0/experiment-spec.md v0.4",
+  "stage": 1,
+  "stage1_pass": true
+}

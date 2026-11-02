@@ -1,0 +1,49 @@
+{
+  "checks": [
+    {
+      "check": "read signing key",
+      "outcome": "DENIED",
+      "path": "/srv/fitrah/runtime/keys/stage2-signing.seed",
+      "status": "PASS"
+    },
+    {
+      "check": "write signing key",
+      "outcome": "DENIED",
+      "path": "/srv/fitrah/runtime/keys/stage2-signing.seed",
+      "status": "PASS"
+    },
+    {
+      "check": "write evidence log",
+      "outcome": "DENIED",
+      "path": "/srv/fitrah/demo-v1/private/store/generations/a8671bce9cfc4edc824eec47ef7bb18c/evidence.jsonl",
+      "status": "PASS"
+    },
+    {
+      "check": "write registry",
+      "outcome": "DENIED",
+      "path": "/srv/fitrah/demo-v1/private/store/generations/a8671bce9cfc4edc824eec47ef7bb18c/registry.json",
+      "status": "PASS"
+    },
+    {
+      "check": "read vault",
+      "outcome": "DENIED",
+      "path": "/srv/fitrah/demo-v1/private/store/generations/a8671bce9cfc4edc824eec47ef7bb18c/ledger.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "write vault",
+      "outcome": "DENIED",
+      "path": "/srv/fitrah/demo-v1/private/store/generations/a8671bce9cfc4edc824eec47ef7bb18c/ledger.txt",
+      "status": "PASS"
+    },
+    {
+      "check": "external network",
+      "outcome": "DENIED",
+      "status": "PASS",
+      "target": "1.1.1.1:443"
+    }
+  ],
+  "euid": 1002,
+  "uid": 1002,
+  "verdict": "PASS"
+}

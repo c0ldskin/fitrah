@@ -1,0 +1,118 @@
+{
+  "contained": {
+    "agent_id": "s65-2992",
+    "all_run_as_agent_uid": true,
+    "cases": [
+      "double_fork",
+      "fork",
+      "setpgid",
+      "setsid"
+    ],
+    "census": [
+      3000,
+      3001,
+      3003,
+      3005,
+      3006
+    ],
+    "census_covers_all": true,
+    "cgroup": "/sys/fs/cgroup/fitrah.slice/fitrah-agentctl.service/agents/s65-2992",
+    "escape_attempts": {
+      "double_fork": "PermissionError,PermissionError",
+      "fork": "PermissionError,PermissionError",
+      "setpgid": "PermissionError,PermissionError",
+      "setsid": "PermissionError,PermissionError"
+    },
+    "escape_denied": true,
+    "left_agent_process_group": {
+      "double_fork": false,
+      "fork": false,
+      "setpgid": true,
+      "setsid": true
+    },
+    "mechanism": "fitrah-agentctl, cgroup.kill",
+    "oracle_cgroup": {
+      "all_in_cgroup_before": true,
+      "cgroup_exists_after": false,
+      "pass": true,
+      "procs": []
+    },
+    "oracle_uid": {
+      "agent_uid": 1002,
+      "pass": true,
+      "processes": []
+    },
+    "processes": [
+      {
+        "case": "agent",
+        "pgid": 2087,
+        "pid": 3000,
+        "sid": 2087,
+        "uid": 1002
+      },
+      {
+        "case": "fork",
+        "escape": "PermissionError,PermissionError",
+        "pgid": 2087,
+        "pid": 3001,
+        "sid": 2087,
+        "uid": 1002
+      },
+      {
+        "case": "double_fork",
+        "escape": "PermissionError,PermissionError",
+        "pgid": 2087,
+        "pid": 3003,
+        "sid": 2087,
+        "uid": 1002
+      },
+      {
+        "case": "setpgid",
+        "escape": "PermissionError,PermissionError",
+        "pgid": 3006,
+        "pid": 3006,
+        "sid": 3005,
+        "uid": 1002
+      },
+      {
+        "case": "setsid",
+        "escape": "PermissionError,PermissionError",
+        "pgid": 3005,
+        "pid": 3005,
+        "sid": 3005,
+        "uid": 1002
+      }
+    ],
+    "terminate": {
+      "killed": 5,
+      "ok": true,
+      "pids": [
+        3000,
+        3001,
+        3003,
+        3005,
+        3006
+      ],
+      "procs_after": []
+    }
+  },
+  "control": {
+    "cases": [
+      "double_fork",
+      "fork",
+      "setpgid",
+      "setsid"
+    ],
+    "detects_escape": true,
+    "mechanism": "killpg",
+    "survivors_of_killpg": [
+      "setpgid",
+      "setsid"
+    ]
+  },
+  "design": "experiments/lab0/stage2-s65-design.md (TC-21 revision 2)",
+  "kernel": "7.0.0-30-generic",
+  "runtime_uid": 1001,
+  "scenario": "S65",
+  "status": "PASS"
+}

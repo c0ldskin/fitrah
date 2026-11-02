@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use or build on Fitrah, please cite it as below."
+title: "Fitrah: Hereditary Trust for Autonomous AI Agents"
+type: software
+authors:
+  - family-names: Mehdi
+    given-names: Zeeshan
+repository-code: "https://github.com/c0ldskin/fitrah"
+license: MIT
+keywords:
+  - AI agents
+  - agent security
+  - hereditary trust
+  - delegation
+  - capability systems
+  - AI governance
+abstract: >-
+  Fitrah is an experimental research programme exploring whether autonomous
+  AI agents can be born with verifiable trust properties that survive learning,
+  delegation and reproduction: a child agent inherits a mandatory constitutional
+  core and cannot receive more protected authority than its parent may delegate,
+  enforced by a trust substrate that works with no language model present.

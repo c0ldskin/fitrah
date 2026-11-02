@@ -1,0 +1,28 @@
+{
+  "e1_e2": {
+    "interpretation": "The tested difference disappears if a richer broker is allowed equivalent trusted contextual caveats; no expressiveness advantage is established.",
+    "simple_attenuation_accepts_but_fitrah_rejects": 60,
+    "states_examined": 64
+  },
+  "e3": {
+    "retry_allowed_counterexample": [
+      ["authorize_birth", "launch_uncertain_live", "retry_success"],
+      [true, 2, false, false]
+    ],
+    "retry_forbidden_counterexample": null
+  },
+  "e4": {
+    "false_birth": ["birth_witness", "instance_measurement"],
+    "false_instance": ["instance_measurement"],
+    "false_write": ["resource_digest"],
+    "hidden_birth": ["birth_witness", "instance_measurement"],
+    "hidden_write": ["resource_digest"]
+  },
+  "e5": {
+    "minimal_counterexample": [
+      "A:read_secret",
+      "A->B:send_secret",
+      "B:write_public_SECRET"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "K3_removal_changes_permissions": false,
+  "cores_whose_semantic_strength_depends_on_action_space": 0,
+  "counts": {
+    "cores": 1024,
+    "exact": 1,
+    "semantic": 320,
+    "semantic_not_syntactic": 316,
+    "syntactic": 4,
+    "syntactic_not_semantic": 0
+  },
+  "empty_core_counts_as_semantically_stronger": true,
+  "equivalence_mismatches": 0,
+  "equivalence_trials": 6400,
+  "examples": {
+    "semantic_not_syntactic": [
+      [],
+      [
+        "K1:allow:read"
+      ],
+      [
+        "K2:allow:write"
+      ],
+      [
+        "K3:deny:delete"
+      ],
+      [
+        "K4:allow:spawn"
+      ],
+      [
+        "K5:allow:mutate"
+      ]
+    ]
+  },
+  "label": "ABLATION / HYPOTHESIS (OQ-06); not canonical; F1h unchanged",
+  "rule_pool": [
+    "K1:allow:read",
+    "K2:allow:write",
+    "K3:deny:delete",
+    "K4:allow:spawn",
+    "K5:allow:mutate",
+    "K6:deny:write",
+    "K7:allow:delete",
+    "K8:allow:admin",
+    "K9:deny:read",
+    "K3:allow:delete"
+  ]
+}

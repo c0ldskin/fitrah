@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f4ef">
+  <meta name="description" content="Local research workbench for the Fitrah project.">
+  <title>Fitrah · Research Workbench</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="rail" id="rail">
+    <a class="brand" href="#overview" aria-label="Fitrah Research Workbench overview">
+      <span class="brand-symbol"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c2.1 5.2 6.2 7.8 12 8-4.8 2.8-7.4 7.4-7 14-3.1-4.4-7.3-6.6-13-6 3.9-3.5 5.4-8.2 4.6-14.3"/><circle cx="16" cy="16" r="2.3"/></svg></span>
+      <span><strong>fitrah</strong><small>RESEARCH WORKBENCH</small></span>
+    </a>
+    <div class="rail-label">Research</div>
+    <nav class="nav" aria-label="Workbench navigation">
+      <button class="nav-item active" data-view="overview"><span class="nav-icon">◫</span>Overview</button>
+      <button class="nav-item" data-view="experiments"><span class="nav-icon">◉</span>Experiments</button>
+      <button class="nav-item" data-view="evidence"><span class="nav-icon">⌁</span>Evidence <span class="nav-count" id="evidence-count">—</span></button>
+      <button class="nav-item" data-view="comparative"><span class="nav-icon">⇄</span>Comparative evaluation</button>
+      <button class="nav-item" data-view="novelty"><span class="nav-icon">⌖</span>Novelty tracking</button>
+    </nav>
+    <div class="rail-label artifacts-label">Repository</div>
+    <div class="repo-card"><div class="repo-icon">GH</div><div><b>c0ldskin / fitrah</b><small id="repo-branch">Reading repository…</small></div><span class="live-dot"></span></div>
+    <div class="rail-bottom"><div class="node-card"><span class="node-mark">⌘</span><div><b>Local research node</b><small>Apple Silicon · loopback only</small></div><i class="live-dot"></i></div><div class="rail-meta"><span>Workbench 01</span><span class="mono" id="python-version">Python —</span></div></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><button class="mobile-menu" id="menu-toggle" aria-label="Open navigation">☰</button><div class="breadcrumbs"><span>Fitrah</span><span class="slash">/</span><b id="current-view">Overview</b></div><div class="top-actions"><span class="local-tag"><i></i> LOCAL ENVIRONMENT</span><button class="refresh" id="refresh" title="Refresh repository state" aria-label="Refresh">↻</button></div></header>
+    <div id="page" class="page"><div class="loading"><span></span>Reading canonical research files…</div></div>
+  </main>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,571 @@
+{
+  "environment": {
+    "cryptography": "50.0.1",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "python": "3.13.16"
+  },
+  "experiment1_deep_lineage": {
+    "rows": [
+      {
+        "A_detected_by_verifier": 23,
+        "A_executed_violations": 23,
+        "attenuation_effective": true,
+        "depth": 10,
+        "ground_truth_violations_C": 0,
+        "injected": 23,
+        "injected_blocked_by_R": 23,
+        "max_lineage_depth_reached": 10,
+        "requests": 33,
+        "valid_births": 10,
+        "verifier_ok_C": true
+      },
+      {
+        "A_detected_by_verifier": 55,
+        "A_executed_violations": 55,
+        "attenuation_effective": true,
+        "depth": 50,
+        "ground_truth_violations_C": 0,
+        "injected": 54,
+        "injected_blocked_by_R": 54,
+        "max_lineage_depth_reached": 50,
+        "requests": 104,
+        "valid_births": 50,
+        "verifier_ok_C": true
+      },
+      {
+        "A_detected_by_verifier": 87,
+        "A_executed_violations": 87,
+        "attenuation_effective": true,
+        "depth": 100,
+        "ground_truth_violations_C": 0,
+        "injected": 84,
+        "injected_blocked_by_R": 84,
+        "max_lineage_depth_reached": 100,
+        "requests": 184,
+        "valid_births": 100,
+        "verifier_ok_C": true
+      }
+    ],
+    "seconds": 3.9
+  },
+  "experiment2_generated_histories": {
+    "A_detected": 59408,
+    "A_executed_violations": 59408,
+    "accepted": 29500,
+    "births": 7506,
+    "conformance_C": 848,
+    "conformance_non_TC22": 0,
+    "counterexamples": [],
+    "histories": 2000,
+    "length": 50,
+    "max_depth": 6,
+    "max_population": 12,
+    "reasons": {
+      "ACTOR_DEAD": 9399,
+      "AUTHORIZED_BIRTH": 7506,
+      "CAP_NOT_DELEGABLE": 4409,
+      "CHILD_LAUNCH_FAILED": 351,
+      "CORE_FORBIDS": 4920,
+      "CORE_IMMUTABLE": 2217,
+      "CORE_MISMATCH": 6520,
+      "MALFORMED": 9550,
+      "MUTABLE_FIELD": 7382,
+      "NOT_OWN_RECORD": 1944,
+      "NO_CAP": 15145,
+      "NO_SPAWN_CAP": 5366,
+      "PARENT_DEAD": 4982,
+      "PERMITTED_0": 12948,
+      "PROTECTED_FIELD": 4242,
+      "SELF_KILL": 1664,
+      "W1_VIOLATION": 1455
+    },
+    "seconds": 206.8,
+    "seeds": [
+      0,
+      1999
+    ],
+    "semantic_digest": "8df8d5876099b6c6a037e5aed8f994f910cbc8db091b75e4b300b557d4331769",
+    "transitions": 100000,
+    "verifier_ok_C": 2000,
+    "violations_C": 0
+  },
+  "experiment3_fault_injection": {
+    "histories": 501,
+    "overall_detection_rate": "13339/13466",
+    "overall_excluding_D10c": "11841/11841",
+    "rows": [
+      {
+        "defect": "D01",
+        "description": "skip core equality on birth",
+        "detected": 773,
+        "detection_rate": "773/773",
+        "example": {
+          "first_violation": [
+            "accepted a request the model blocks (CORE_MISMATCH)",
+            "F1h: core of a1 differs from root core"
+          ],
+          "history_index": 1
+        },
+        "genesis": "canonical",
+        "histories_with_violation": 388,
+        "max_latency": 0,
+        "median_latency": 0,
+        "violating_transitions": 773
+      },
+      {
+        "defect": "D02",
+        "description": "skip C(child) within Dg(parent)",
+        "detected": 776,
+        "detection_rate": "776/776",
+        "example": {
+          "first_violation": [
+            "accepted a request the model blocks (CAP_NOT_DELEGABLE)",
+            "C(a3) exceeds root authority"
+          ],
+          "history_index": 0
+        },
+        "genesis": "canonical",
+        "histories_with_violation": 375,
+        "max_latency": 0,
+        "median_latency": 0.0,
+        "violating_transitions": 776
+      },
+      {
+        "defect": "D03",
+        "description": "skip Dg(child) within C(child) (W1)",
+        "detected": 373,
+        "detection_rate": "373/373",
+        "example": {
+          "first_violation": [
+            "accepted a request the model blocks (W1_VIOLATION)",
+            "W1: Dg(a2) not within C(a2)"
+          ],
+          "history_index": 0
+        },
+        "genesis": "canonical",
+        "histories_with_violation": 264,
+        "max_latency": 0,
+        "median_latency": 0,
+        "violating_transitions": 373
+      },
+      {
+        "defect": "D04",
+        "description": "skip Policy_0 on invoke",
+        "detected": 1250,
+        "detection_rate": "1250/1250",
+        "example": {
+          "first_violation": [
+            "accepted a request the model blocks (CORE_FORBIDS)"
+          ],
+          "history_index": 0
+        },
+        "genesis": "canonical",
+        "histories_with_violation": 428,
+        "max_latency": 0,
+        "median_latency": 0.0,
+        "violating_transitions": 1250
+      },
+      {
+        "defect": "D05",
+        "description": "skip Policy_0 on spawn",
+        "detected": 1997,
+        "detection_rate": "1997/1997",
+        "example": {
+          "first_violation": [
+            "accepted a request the model blocks (CORE_FORBIDS)"
+          ],
+          "history_index": 0
+        },
+        "genesis": "spawn_denied",
+        "histories_with_violation": 454,
+        "max_latency": 0,
+        "median_latency": 0,
+        "violating_transitions": 1997
+      },
+      {
+        "defect": "D06",
+        "description": "skip (mutate, self) capability check",
+        "detected": 489,
+        "detection_rate": "489/489",
+        "example": {
+          "first_violation": [
+            "accepted a request the model blocks (NO_CAP)"
+          ],
+          "history_index": 0
+        },
+        "genesis": "canonical",
+        "histories_with_violation": 225,
+        "max_latency": 0,
+        "median_latency": 0,
+        "violating_transitions": 489
+      },
+      {
+        "defect": "D07",
+        "description": "skip Policy_0 on mutation",
+        "detected": 1920,
+        "detection_rate": "1920/1920",
+        "example": {
+          "first_violation": [
+            "accepted a request the model blocks (CORE_FORBIDS)"
+          ],
+          "history_index": 0
+        },
+        "genesis": "mutate_denied",
+        "histories_with_violation": 473,
+        "max_latency": 0,
+        "median_latency": 0.0,
+        "violating_transitions": 1920
+      },
+      {
+        "defect": "D08",
+        "description": "trust claimed identity instead of channel identity",
+        "detected": 268,
+        "detection_rate": "268/268",
+        "example": {
+          "first_violation": [
+            "accepted a request the model blocks (NO_CAP)"
+          ],
+          "history_index": 2
+        },
+        "genesis": "canonical",
+        "histories_with_violation": 195,
+        "max_latency": 0,
+        "median_latency": 0.0,
+        "violating_transitions": 268
+      },
+      {
+        "defect": "D09",
+        "description": "allow birth from a dead parent",
+        "detected": 403,
+        "detection_rate": "403/403",
+        "example": {
+          "first_violation": [
+            "accepted a request the model blocks (PARENT_DEAD)"
+          ],
+          "history_index": 0
+        },
+        "genesis": "canonical",
+        "histories_with_violation": 147,
+        "max_latency": 0,
+        "median_latency": 0,
+        "violating_transitions": 403
+      },
+      {
+        "defect": "D10a",
+        "description": "omit birth evidence",
+        "detected": 1894,
+        "detection_rate": "1894/1894",
+        "example": {
+          "first_violation": [
+            "F4: allowed birth without birth evidence"
+          ],
+          "history_index": 0
+        },
+        "genesis": "canonical",
+        "histories_with_violation": 458,
+        "max_latency": 0,
+        "median_latency": 0.0,
+        "violating_transitions": 1894
+      },
+      {
+        "defect": "D10b",
+        "description": "falsify birth evidence (logged record differs from registry)",
+        "detected": 1625,
+        "detection_rate": "1625/1625",
+        "example": {
+          "first_violation": [
+            "F4/F5: birth evidence differs from the registered record"
+          ],
+          "history_index": 0
+        },
+        "genesis": "canonical",
+        "histories_with_violation": 457,
+        "max_latency": 0,
+        "median_latency": 0,
+        "violating_transitions": 1625
+      },
+      {
+        "defect": "D10c",
+        "description": "falsify birth evidence and the state digest consistently",
+        "detected": 1498,
+        "detection_rate": "1498/1625",
+        "example": {
+          "first_violation": [
+            "F4/F5: birth evidence differs from the registered record"
+          ],
+          "history_index": 0
+        },
+        "genesis": "canonical",
+        "histories_with_violation": 457,
+        "max_latency": 45,
+        "median_latency": 2.0,
+        "violating_transitions": 1625
+      },
+      {
+        "defect": "D11",
+        "description": "break RT-01 rollback",
+        "detected": 73,
+        "detection_rate": "73/73",
+        "example": {
+          "first_violation": [
+            "RT-01: blocked request changed state"
+          ],
+          "history_index": 2
+        },
+        "genesis": "canonical",
+        "histories_with_violation": 64,
+        "max_latency": 0,
+        "median_latency": 0,
+        "violating_transitions": 73
+      }
+    ],
+    "seconds": 257.5
+  },
+  "experiment4_defect_counterexamples": {
+    "D01": {
+      "found": true,
+      "length": 1,
+      "path": [
+        [
+          "a0",
+          "{\"child\": {\"C\": [\"mutate:self\", \"read:vault\", \"spawn:R\"], \"Dg\": [\"mutate:self\", \"read:vault\", \"spawn:R\"], \"core\": []}, \"op\": \"spawn\", \"program\": []}"
+        ]
+      ],
+      "transitions_searched": 268,
+      "violations": [
+        "accepted a request the model blocks (CORE_MISMATCH)",
+        "F1h: core of a1 differs from root core"
+      ]
+    },
+    "D02": {
+      "found": true,
+      "length": 1,
+      "path": [
+        [
+          "a0",
+          "{\"child\": {\"C\": [\"delete:vault\"], \"Dg\": [], \"core\": [{\"action\": \"delete\", \"effect\": \"deny\", \"id\": \"K3\", \"resource\": \"vault\"}, {\"action\": \"mutate\", \"effect\": \"allow\", \"id\": \"K5\", \"resource\": \"self\"}, {\"action\": \"read\", \"effect\": \"allow\", \"id\": \"K1\", \"resource\": \"vault\"}, {\"action\": \"spawn\", \"effect\": \"allow\", \"id\": \"K4\", \"resource\": \"R\"}, {\"action\": \"write\", \"effect\": \"allow\", \"id\": \"K2\", \"resource\": \"vault\"}]}, \"op\": \"spawn\", \"program\": []}"
+        ]
+      ],
+      "transitions_searched": 27,
+      "violations": [
+        "accepted a request the model blocks (CAP_NOT_DELEGABLE)",
+        "F2: C(a1) not within Dg(parent)"
+      ]
+    },
+    "D03": {
+      "found": true,
+      "length": 1,
+      "path": [
+        [
+          "a0",
+          "{\"child\": {\"C\": [], \"Dg\": [\"delete:vault\"], \"core\": [{\"action\": \"delete\", \"effect\": \"deny\", \"id\": \"K3\", \"resource\": \"vault\"}, {\"action\": \"mutate\", \"effect\": \"allow\", \"id\": \"K5\", \"resource\": \"self\"}, {\"action\": \"read\", \"effect\": \"allow\", \"id\": \"K1\", \"resource\": \"vault\"}, {\"action\": \"spawn\", \"effect\": \"allow\", \"id\": \"K4\", \"resource\": \"R\"}, {\"action\": \"write\", \"effect\": \"allow\", \"id\": \"K2\", \"resource\": \"vault\"}]}, \"op\": \"spawn\", \"program\": []}"
+        ]
+      ],
+      "transitions_searched": 12,
+      "violations": [
+        "accepted a request the model blocks (W1_VIOLATION)",
+        "W1: Dg(a1) not within C(a1)",
+        "F2h: Dg(a1) not within Dg(parent)"
+      ]
+    },
+    "D04": {
+      "found": true,
+      "length": 1,
+      "path": [
+        [
+          "a0",
+          "{\"action\": \"delete\", \"args\": {\"data\": \"x\", \"file\": \"ledger.txt\"}, \"op\": \"invoke\", \"resource\": \"vault\"}"
+        ]
+      ],
+      "transitions_searched": 3,
+      "violations": [
+        "accepted a request the model blocks (CORE_FORBIDS)"
+      ]
+    },
+    "D05": {
+      "found": true,
+      "length": 1,
+      "path": [
+        [
+          "a0",
+          "{\"child\": {\"C\": [], \"Dg\": [], \"core\": [{\"action\": \"delete\", \"effect\": \"deny\", \"id\": \"K3\", \"resource\": \"vault\"}, {\"action\": \"mutate\", \"effect\": \"allow\", \"id\": \"K5\", \"resource\": \"self\"}, {\"action\": \"read\", \"effect\": \"allow\", \"id\": \"K1\", \"resource\": \"vault\"}, {\"action\": \"spawn\", \"effect\": \"deny\", \"id\": \"K4\", \"resource\": \"R\"}, {\"action\": \"write\", \"effect\": \"allow\", \"id\": \"K2\", \"resource\": \"vault\"}]}, \"op\": \"spawn\", \"program\": []}"
+        ]
+      ],
+      "transitions_searched": 11,
+      "violations": [
+        "accepted a request the model blocks (CORE_FORBIDS)"
+      ]
+    },
+    "D06": {
+      "found": true,
+      "length": 2,
+      "path": [
+        [
+          "a0",
+          "{\"child\": {\"C\": [], \"Dg\": [], \"core\": [{\"action\": \"delete\", \"effect\": \"deny\", \"id\": \"K3\", \"resource\": \"vault\"}, {\"action\": \"mutate\", \"effect\": \"allow\", \"id\": \"K5\", \"resource\": \"self\"}, {\"action\": \"read\", \"effect\": \"allow\", \"id\": \"K1\", \"resource\": \"vault\"}, {\"action\": \"spawn\", \"effect\": \"allow\", \"id\": \"K4\", \"resource\": \"R\"}, {\"action\": \"write\", \"effect\": \"allow\", \"id\": \"K2\", \"resource\": \"vault\"}]}, \"op\": \"spawn\", \"program\": []}"
+        ],
+        [
+          "a1",
+          "{\"field\": \"mut.s\", \"op\": \"mutate\", \"value\": 1}"
+        ]
+      ],
+      "transitions_searched": 843,
+      "violations": [
+        "accepted a request the model blocks (NO_CAP)"
+      ]
+    },
+    "D07": {
+      "found": true,
+      "length": 1,
+      "path": [
+        [
+          "a0",
+          "{\"field\": \"mut.s\", \"op\": \"mutate\", \"value\": 1}"
+        ]
+      ],
+      "transitions_searched": 4,
+      "violations": [
+        "accepted a request the model blocks (CORE_FORBIDS)"
+      ]
+    },
+    "D08": {
+      "found": true,
+      "length": 2,
+      "path": [
+        [
+          "a0",
+          "{\"child\": {\"C\": [], \"Dg\": [], \"core\": [{\"action\": \"delete\", \"effect\": \"deny\", \"id\": \"K3\", \"resource\": \"vault\"}, {\"action\": \"mutate\", \"effect\": \"allow\", \"id\": \"K5\", \"resource\": \"self\"}, {\"action\": \"read\", \"effect\": \"allow\", \"id\": \"K1\", \"resource\": \"vault\"}, {\"action\": \"spawn\", \"effect\": \"allow\", \"id\": \"K4\", \"resource\": \"R\"}, {\"action\": \"write\", \"effect\": \"allow\", \"id\": \"K2\", \"resource\": \"vault\"}]}, \"op\": \"spawn\", \"program\": []}"
+        ],
+        [
+          "a1",
+          "{\"action\": \"read\", \"args\": {\"data\": \"x\", \"file\": \"ledger.txt\"}, \"as\": \"a0\", \"op\": \"invoke\", \"resource\": \"vault\"}"
+        ]
+      ],
+      "transitions_searched": 838,
+      "violations": [
+        "accepted a request the model blocks (NO_CAP)"
+      ]
+    },
+    "D09": {
+      "found": true,
+      "length": 2,
+      "path": [
+        [
+          "a0",
+          "{\"op\": \"kill\"}"
+        ],
+        [
+          "a0",
+          "{\"child\": {\"C\": [], \"Dg\": [], \"core\": [{\"action\": \"delete\", \"effect\": \"deny\", \"id\": \"K3\", \"resource\": \"vault\"}, {\"action\": \"mutate\", \"effect\": \"allow\", \"id\": \"K5\", \"resource\": \"self\"}, {\"action\": \"read\", \"effect\": \"allow\", \"id\": \"K1\", \"resource\": \"vault\"}, {\"action\": \"spawn\", \"effect\": \"allow\", \"id\": \"K4\", \"resource\": \"R\"}, {\"action\": \"write\", \"effect\": \"allow\", \"id\": \"K2\", \"resource\": \"vault\"}]}, \"op\": \"spawn\", \"program\": []}"
+        ]
+      ],
+      "transitions_searched": 288,
+      "violations": [
+        "accepted a request the model blocks (PARENT_DEAD)"
+      ]
+    },
+    "D10a": {
+      "found": true,
+      "length": 1,
+      "path": [
+        [
+          "a0",
+          "{\"child\": {\"C\": [], \"Dg\": [], \"core\": [{\"action\": \"delete\", \"effect\": \"deny\", \"id\": \"K3\", \"resource\": \"vault\"}, {\"action\": \"mutate\", \"effect\": \"allow\", \"id\": \"K5\", \"resource\": \"self\"}, {\"action\": \"read\", \"effect\": \"allow\", \"id\": \"K1\", \"resource\": \"vault\"}, {\"action\": \"spawn\", \"effect\": \"allow\", \"id\": \"K4\", \"resource\": \"R\"}, {\"action\": \"write\", \"effect\": \"allow\", \"id\": \"K2\", \"resource\": \"vault\"}]}, \"op\": \"spawn\", \"program\": []}"
+        ]
+      ],
+      "transitions_searched": 11,
+      "violations": [
+        "F4: allowed birth without birth evidence"
+      ]
+    },
+    "D10b": {
+      "found": true,
+      "length": 1,
+      "path": [
+        [
+          "a0",
+          "{\"child\": {\"C\": [\"mutate:self\"], \"Dg\": [], \"core\": [{\"action\": \"delete\", \"effect\": \"deny\", \"id\": \"K3\", \"resource\": \"vault\"}, {\"action\": \"mutate\", \"effect\": \"allow\", \"id\": \"K5\", \"resource\": \"self\"}, {\"action\": \"read\", \"effect\": \"allow\", \"id\": \"K1\", \"resource\": \"vault\"}, {\"action\": \"spawn\", \"effect\": \"allow\", \"id\": \"K4\", \"resource\": \"R\"}, {\"action\": \"write\", \"effect\": \"allow\", \"id\": \"K2\", \"resource\": \"vault\"}]}, \"op\": \"spawn\", \"program\": []}"
+        ]
+      ],
+      "transitions_searched": 43,
+      "violations": [
+        "F4/F5: birth evidence differs from the registered record"
+      ]
+    },
+    "D10c": {
+      "found": true,
+      "length": 1,
+      "path": [
+        [
+          "a0",
+          "{\"child\": {\"C\": [\"mutate:self\"], \"Dg\": [], \"core\": [{\"action\": \"delete\", \"effect\": \"deny\", \"id\": \"K3\", \"resource\": \"vault\"}, {\"action\": \"mutate\", \"effect\": \"allow\", \"id\": \"K5\", \"resource\": \"self\"}, {\"action\": \"read\", \"effect\": \"allow\", \"id\": \"K1\", \"resource\": \"vault\"}, {\"action\": \"spawn\", \"effect\": \"allow\", \"id\": \"K4\", \"resource\": \"R\"}, {\"action\": \"write\", \"effect\": \"allow\", \"id\": \"K2\", \"resource\": \"vault\"}]}, \"op\": \"spawn\", \"program\": []}"
+        ]
+      ],
+      "transitions_searched": 43,
+      "violations": [
+        "F4/F5: birth evidence differs from the registered record"
+      ]
+    },
+    "D11": {
+      "found": true,
+      "length": 1,
+      "path": [
+        [
+          "a0",
+          "{\"child\": {\"C\": [\"mutate:self\", \"read:vault\", \"spawn:R\"], \"Dg\": [\"mutate:self\", \"read:vault\", \"spawn:R\"], \"core\": [{\"action\": \"delete\", \"effect\": \"deny\", \"id\": \"K3\", \"resource\": \"vault\"}, {\"action\": \"mutate\", \"effect\": \"allow\", \"id\": \"K5\", \"resource\": \"self\"}, {\"action\": \"read\", \"effect\": \"allow\", \"id\": \"K1\", \"resource\": \"vault\"}, {\"action\": \"spawn\", \"effect\": \"allow\", \"id\": \"K4\", \"resource\": \"R\"}, {\"action\": \"write\", \"effect\": \"allow\", \"id\": \"K2\", \"resource\": \"vault\"}]}, \"op\": \"spawn\", \"program\": [{\"__stage1b__\": \"launch_fail\"}]}"
+        ]
+      ],
+      "transitions_searched": 277,
+      "violations": [
+        "RT-01: blocked request changed state"
+      ]
+    },
+    "baseline_A": {
+      "found": true,
+      "length": 1,
+      "violations": [
+        "accepted a request the model blocks (NO_CAP)"
+      ]
+    },
+    "seconds": 1.1
+  },
+  "experiment4_exhaustive_C": {
+    "conformance": 91,
+    "conformance_non_TC22": 0,
+    "counterexample": null,
+    "max_depth_explored": 5,
+    "seconds": 266.2,
+    "states": 6742,
+    "transitions": 459386,
+    "truncated": false,
+    "violations": 0
+  },
+  "parameters": {
+    "depths": [
+      10,
+      50,
+      100
+    ],
+    "e2_histories": 2000,
+    "e2_length": 50,
+    "e2_seed0": 0,
+    "e3_histories": 500,
+    "e3_length": 50,
+    "e3_seed0": 10000,
+    "exhaustive_max_agents": 3,
+    "exhaustive_universe": [
+      "delete:vault",
+      "mutate:self",
+      "read:vault",
+      "spawn:R"
+    ],
+    "xcheck_histories": 50
+  },
+  "process_path_cross_check": {
+    "histories_compared": 50,
+    "mismatched": 0,
+    "seconds": 7.0,
+    "skipped_launch_fail": 37
+  },
+  "spec": "experiments/lab0/stage1b-robustness.md"
+}

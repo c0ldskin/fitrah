@@ -1,0 +1,12 @@
+[Unit]
+Description=Fitrah Stage 2 agent helper socket (TC-21)
+
+[Socket]
+ListenStream=/run/fitrah-agentctl.sock
+SocketUser=fitrah-runtime
+SocketGroup=fitrah-runtime
+SocketMode=0600
+Accept=no
+
+[Install]
+WantedBy=sockets.target

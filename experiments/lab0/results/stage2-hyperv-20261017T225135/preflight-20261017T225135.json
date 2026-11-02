@@ -1,0 +1,78 @@
+{
+  "checks": [
+    {
+      "detail": "runtime uid 1001, agent uid 1002, no shared groups",
+      "id": "P01",
+      "status": "PASS",
+      "title": "distinct non-root identities"
+    },
+    {
+      "detail": "euid 1001",
+      "id": "P02",
+      "status": "PASS",
+      "title": "R runs as runtime user, not root"
+    },
+    {
+      "detail": "sha256 7eab91567921bdd0b1380b75ce27adb08112479bbf818fedf4f7d45c0580ba1e",
+      "id": "P03",
+      "status": "PASS",
+      "title": "fresh signing key, runtime-only"
+    },
+    {
+      "detail": "all protected by mode bits",
+      "id": "P04",
+      "status": "PASS",
+      "title": "agent denied key, log, registry, vault, source (static)"
+    },
+    {
+      "detail": "none found",
+      "id": "P05",
+      "status": "PASS",
+      "title": "no host credentials or container sockets exposed"
+    },
+    {
+      "detail": "1.1.1.1:443: DENIED",
+      "id": "P06",
+      "status": "PASS",
+      "title": "agent has no external network"
+    },
+    {
+      "detail": "6 access attempts denied as uid 1002",
+      "id": "P07",
+      "status": "PASS",
+      "title": "agent actually denied key, log, registry, vault (dynamic)"
+    },
+    {
+      "detail": "5 processes killed by cgroup.kill; cgroup and uid oracles empty; killpg control survivors: ['setpgid', 'setsid']",
+      "id": "P08",
+      "status": "PASS",
+      "title": "containment identifies every descendant (fork, double fork, setsid)"
+    },
+    {
+      "detail": "2 passed, 11 deselected in 0.68s",
+      "id": "P09",
+      "status": "PASS",
+      "title": "response-phase RT-02 regression"
+    }
+  ],
+  "config": {
+    "agent_user": "fitrah-agent",
+    "log_dir": "/srv/fitrah/runtime/logs",
+    "log_file": "/srv/fitrah/runtime/logs/stage2.jsonl",
+    "network_probe": [
+      "1.1.1.1",
+      443
+    ],
+    "network_timeout_s": 2.0,
+    "public_key": "/srv/fitrah/runtime/keys/stage2-signing.pub",
+    "registry": "/srv/fitrah/runtime/registry.json",
+    "runtime_user": "fitrah-runtime",
+    "signing_key": "/srv/fitrah/runtime/keys/stage2-signing.seed",
+    "source_dir": "/srv/fitrah/runtime/fitrah/src",
+    "vault_dir": "/srv/fitrah/runtime/vault",
+    "vault_file": "/srv/fitrah/runtime/vault/ledger.txt"
+  },
+  "euid": 1001,
+  "spec": "experiments/lab0/stage2-environment.md",
+  "verdict": "READY"
+}

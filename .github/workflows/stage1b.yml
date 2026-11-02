@@ -1,0 +1,60 @@
+name: Fitrah Cloud Laboratory - Stage 1B
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'quick = smoke only; full = canonical reproduction (allow about one hour)'
+        required: true
+        type: choice
+        default: quick
+        options:
+          - quick
+          - full
+
+permissions:
+  contents: read
+
+jobs:
+  stage1b:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      PYTHONPATH: src
+      MODE: ${{ inputs.mode }}
+    steps:
+      - name: Initialize artifact location
+        run: echo "OUTPUT=${RUNNER_TEMP}/fitrah-stage1b-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" >> "$GITHUB_ENV"
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2; shared reviewed Stage 1 pin
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install pinned dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Stage 1B harness and automation tests
+        id: tests
+        run: python -m pytest -q tests/test_stage1b.py tests/test_stage1b_ci.py --junitxml="${RUNNER_TEMP}/stage1b-tests.xml"
+      - name: Execute selected fixed mode and independently validate evidence
+        if: ${{ always() && steps.tests.outcome != 'skipped' }}
+        run: python scripts/run_stage1b_ci.py --mode "$MODE" --output "$OUTPUT"
+      - name: Preserve tests and summarize research status
+        if: always()
+        env:
+          TESTS_OUTCOME: ${{ steps.tests.outcome }}
+        run: |
+          mkdir -p "$OUTPUT"
+          if [ -f "${RUNNER_TEMP}/stage1b-tests.xml" ]; then
+            cp "${RUNNER_TEMP}/stage1b-tests.xml" "$OUTPUT/"
+          fi
+          python scripts/run_stage1b_ci.py --summary --output "$OUTPUT" --tests-outcome "$TESTS_OUTCOME" >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload evidence and partial diagnostics even on failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: stage1b-${{ inputs.mode }}-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.OUTPUT }}/
+          if-no-files-found: error
+          retention-days: 90

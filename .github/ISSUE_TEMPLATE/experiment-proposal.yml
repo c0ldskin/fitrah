@@ -1,0 +1,29 @@
+name: 🧪 Experiment proposal
+description: Propose an experiment. Pre-register it before running anything.
+labels: ["experiment proposal"]
+body:
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Hypothesis
+      description: What do you expect, and what result would falsify it?
+    validations:
+      required: true
+  - type: textarea
+    id: comparator
+    attributes:
+      label: Comparator
+      description: The strongest existing approach to compare against (for example an attenuated delegation broker).
+    validations:
+      required: true
+  - type: textarea
+    id: metric
+    attributes:
+      label: Success metric and stopping rule
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment and safety
+      description: Where will it run? Hostile-code experiments must run in a disposable, disconnected VM.

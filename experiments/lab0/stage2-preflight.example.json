@@ -1,0 +1,15 @@
+{
+  "_note": "Template for the Stage 2 environment. Paths are inside the disposable VM, never on the host. The private key must be generated fresh in the VM and must not be inside the repository.",
+  "runtime_user": "fitrah-runtime",
+  "agent_user": "fitrah-agent",
+  "signing_key": "/srv/fitrah/runtime/keys/stage2-signing.seed",
+  "public_key": "/srv/fitrah/runtime/keys/stage2-signing.pub",
+  "log_dir": "/srv/fitrah/runtime/logs",
+  "log_file": "/srv/fitrah/runtime/logs/stage2.jsonl",
+  "registry": "/srv/fitrah/runtime/registry.json",
+  "vault_dir": "/srv/fitrah/runtime/vault",
+  "vault_file": "/srv/fitrah/runtime/vault/ledger.txt",
+  "source_dir": "/srv/fitrah/runtime/src",
+  "network_probe": ["1.1.1.1", 443],
+  "network_timeout_s": 2.0
+}

@@ -1,0 +1,57 @@
+{
+  "lab": "0",
+  "policy_0": "explicit_allow",
+  "root": {
+    "C": [
+      "read:vault",
+      "write:vault",
+      "delete:vault",
+      "spawn:R",
+      "mutate:self"
+    ],
+    "Dg": [
+      "read:vault",
+      "spawn:R",
+      "mutate:self"
+    ],
+    "core": [
+      {
+        "action": "read",
+        "effect": "allow",
+        "id": "K1",
+        "resource": "vault"
+      },
+      {
+        "action": "write",
+        "effect": "allow",
+        "id": "K2",
+        "resource": "vault"
+      },
+      {
+        "action": "delete",
+        "effect": "deny",
+        "id": "K3",
+        "resource": "vault"
+      },
+      {
+        "action": "spawn",
+        "effect": "allow",
+        "id": "K4",
+        "resource": "R"
+      },
+      {
+        "action": "mutate",
+        "effect": "allow",
+        "id": "K5",
+        "resource": "self"
+      }
+    ],
+    "id": "a0"
+  },
+  "rt02_request_timeout_ms": 2000,
+  "spec": "experiment-spec.md v0.4",
+  "stage": "1",
+  "vault": {
+    "ledger.txt": "genesis\n"
+  }
+}

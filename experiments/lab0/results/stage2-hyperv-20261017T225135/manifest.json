@@ -1,0 +1,14 @@
+{
+  "source_commit": "8ce6aeeda93644f198f01baf75f8793ee87d5caa",
+  "guest_run": "20261017T225135",
+  "public_key_export": "VERIFIED",
+  "files": {
+    "agent-probe-20261017T225135.json": "e29be1c19e0a6a6d37551ad85059687c7550393c3ea49dfa136c8194022fc696",
+    "environment-20261017T225135.txt": "8d868f10f9561683ebb3ce7b1a8402b7415fa008bb17cfd2e39c85f7f3376ecc",
+    "preflight-20261017T225135.json": "49613236da8919294099eb3a97d812421a49b04486febe555be25cad114f3054",
+    "s65-20261017T225135.json": "79e758855bd1905ae7d6acbe57c9f8cba1e0a5bf2c680b7df86f9dd9eb3ab581",
+    "tcb-20261017T225135.txt": "7b40a622f9c1cc58618e47357d16ccd1aac1167702b3b9c24d0a746ad515c250",
+    "stage2-signing.pub": "adebc5a69f760f2a7e5641d0cea37bce3f940391550496c1c036a7d684525f5b"
+  },
+  "public_key_raw_sha256": "7eab91567921bdd0b1380b75ce27adb08112479bbf818fedf4f7d45c0580ba1e"
+}

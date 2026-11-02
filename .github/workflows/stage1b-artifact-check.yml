@@ -1,0 +1,46 @@
+name: Fitrah Stage 1B Artifact Checksum (temporary verification only)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  checksum:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # reviewed v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # reviewed v5.6.0
+        with:
+          python-version: '3.12'
+      - name: Run offline metadata and corrupted ZIP tests
+        run: python -m unittest discover -s tests -p 'test_stage1b_artifact_check.py' -v
+      - name: Download only the fixed original ZIP and verify SHA-256
+        id: verify
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python scripts/check_stage1b_artifact.py --output "${RUNNER_TEMP}/stage1b-artifact-check"
+      - name: Publish qualified checksum result
+        if: always()
+        run: |
+          echo '### Stage 1B evidence checksum (not archival)' >> "$GITHUB_STEP_SUMMARY"
+          echo 'This workflow checks original ZIP bytes against the GitHub-reported digest. It does not extract, replay, archive, replicate or restore evidence.' >> "$GITHUB_STEP_SUMMARY"
+          if [ -f "${RUNNER_TEMP}/stage1b-artifact-check/checksum-report.json" ]; then
+            python -m json.tool "${RUNNER_TEMP}/stage1b-artifact-check/checksum-report.json" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'No verification report was created.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload checksum report only
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # reviewed v4.6.2
+        with:
+          name: stage1b-original-zip-checksum-report-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/stage1b-artifact-check/checksum-report.json
+          if-no-files-found: warn
+          retention-days: 90

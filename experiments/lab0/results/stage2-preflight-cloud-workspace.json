@@ -1,0 +1,79 @@
+{
+  "checks": [
+    {
+      "detail": "no such user: fitrah-runtime, fitrah-agent",
+      "id": "P01",
+      "status": "FAIL",
+      "title": "distinct non-root identities"
+    },
+    {
+      "detail": "preflight is running as root (uid 0)",
+      "id": "P02",
+      "status": "FAIL",
+      "title": "R runs as runtime user, not root"
+    },
+    {
+      "detail": "signing key or public key missing",
+      "id": "P03",
+      "status": "FAIL",
+      "title": "fresh signing key, runtime-only"
+    },
+    {
+      "detail": "agent user missing",
+      "id": "P04",
+      "status": "FAIL",
+      "title": "agent denied key, log, registry, vault, source"
+    },
+    {
+      "detail": "none found",
+      "id": "P05",
+      "status": "PASS",
+      "title": "no host credentials or container sockets exposed"
+    },
+    {
+      "detail": "requires agent_probe.py run as the agent user in the environment",
+      "id": "P06",
+      "status": "NOT_EVALUATED",
+      "title": "agent has no external network"
+    },
+    {
+      "detail": "requires agent_probe.py run as the agent user in the environment",
+      "id": "P07",
+      "status": "NOT_EVALUATED",
+      "title": "agent actually denied key, log, registry, vault (dynamic)"
+    },
+    {
+      "detail": "requires the S65 containment test inside the boundary",
+      "id": "P08",
+      "status": "NOT_EVALUATED",
+      "title": "containment identifies every descendant (fork, double fork, setsid)"
+    },
+    {
+      "detail": "2 passed, 11 deselected in 0.71s",
+      "id": "P09",
+      "status": "PASS",
+      "title": "response-phase RT-02 regression"
+    }
+  ],
+  "config": {
+    "_note": "Template for the Stage 2 environment. Paths are inside the disposable VM, never on the host. The private key must be generated fresh in the VM and must not be inside the repository.",
+    "agent_user": "fitrah-agent",
+    "log_dir": "/srv/fitrah/runtime/logs",
+    "log_file": "/srv/fitrah/runtime/logs/stage2.jsonl",
+    "network_probe": [
+      "1.1.1.1",
+      443
+    ],
+    "network_timeout_s": 2.0,
+    "public_key": "/srv/fitrah/runtime/keys/stage2-signing.pub",
+    "registry": "/srv/fitrah/runtime/registry.json",
+    "runtime_user": "fitrah-runtime",
+    "signing_key": "/srv/fitrah/runtime/keys/stage2-signing.seed",
+    "source_dir": "/srv/fitrah/runtime/src",
+    "vault_dir": "/srv/fitrah/runtime/vault",
+    "vault_file": "/srv/fitrah/runtime/vault/ledger.txt"
+  },
+  "euid": 0,
+  "spec": "experiments/lab0/stage2-environment.md",
+  "verdict": "ENVIRONMENT_INVALID"
+}

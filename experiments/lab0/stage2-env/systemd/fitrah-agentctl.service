@@ -1,0 +1,14 @@
+[Unit]
+Description=Fitrah Stage 2 agent helper (TC-21): launch, terminate, census
+Requires=fitrah-agentctl.socket
+After=fitrah-agentctl.socket
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python3 -I /usr/local/lib/fitrah/agentctl.py /etc/fitrah/agentctl.json
+Slice=fitrah.slice
+# root-owned delegated subtree: supervisor/ holds the helper, agents/<id>/ holds each agent
+Delegate=yes
+KillMode=control-group
+Restart=no

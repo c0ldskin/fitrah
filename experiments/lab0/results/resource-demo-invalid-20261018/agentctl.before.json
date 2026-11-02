@@ -1,0 +1,19 @@
+{
+  "runtime_user": "fitrah-runtime",
+  "agent_user": "fitrah-agent",
+  "socket": "/run/fitrah-agentctl.sock",
+  "terminate_timeout_s": 5,
+  "max_agents": 32,
+  "programs": {
+    "s65": [
+      "/usr/bin/python3",
+      "-I",
+      "/usr/local/lib/fitrah/agents/s65_descendants.py"
+    ],
+    "synthetic-pilot": [
+      "/usr/bin/python3",
+      "-I",
+      "/usr/local/lib/fitrah/agents/pilot_agent.py"
+    ]
+  }
+}
