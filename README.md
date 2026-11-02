@@ -1,45 +1,91 @@
-# Fitrah
+<div align="center">
 
-Fitrah is an experimental research project exploring whether autonomous AI agents can be **born with verifiable trust properties** that survive learning, delegation and reproduction.
+<img src="assets/banner.jpg" alt="Fitrah (فطرة): hereditary trust for autonomous AI agents. A lineage of agents inherits a gold constitutional core; a child that tries to amplify its authority is refused." width="100%">
 
-The central question is deliberately narrow:
+<br>
 
-> Can a child agent inherit a mandatory constitutional core while being prevented from receiving more protected authority than its parent is authorised to delegate?
+<a href="experiments/lab0/results/stage1-findings.md"><img src="https://img.shields.io/badge/Lab%200%20·%20Stage%201-pass-3FB8AF?style=flat-square" alt="Lab 0 Stage 1: pass"></a>
+<a href="https://github.com/c0ldskin/fitrah/issues?q=is%3Aissue+is%3Aopen+label%3A%22open+question%22"><img src="https://img.shields.io/github/issues/c0ldskin/fitrah/open%20question?style=flat-square&color=D4A853&label=open%20questions" alt="Open questions"></a>
+<a href="https://github.com/c0ldskin/fitrah/discussions"><img src="https://img.shields.io/badge/collaborators-welcome-8A7BC8?style=flat-square" alt="Collaborators welcome"></a>
+<img src="https://img.shields.io/badge/python-3.12%2B-5B6B91?style=flat-square" alt="Python 3.12+">
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-5B6B91?style=flat-square" alt="MIT license"></a>
 
-Fitrah separates **model behaviour** from **execution guarantees**. A model may reason, learn, adapt and even behave adversarially, while an independent trust substrate determines:
+**[The question](#the-question)** · **[Results](#-first-results)** · **[Architecture](#-five-layers-of-agent-trust)** · **[Collaborate](#-collaborate)** · **[Cite](#-cite)** · **[Website](https://c0ldskin.github.io/fitrah/)**
 
-- which constitutional properties are mandatory;
-- which authority the agent can exercise;
-- which authority it may delegate;
-- what constitutes a valid descendant;
-- which protected actions may actually execute.
+</div>
 
-The goal is not to build another prompt guardrail or LLM judge. Prompts, system messages and model refusals are treated as probabilistic behaviour, not deterministic security controls.
+## The question
 
-Research project: **Fitrah**  
-First experiment: **Fitrah Lab 0**  
-First technical workstream: **Hereditary Trust**
+> **Can a child agent inherit a mandatory constitutional core, and be prevented from receiving more protected authority than its parent is authorised to delegate?**
 
-*Fitrah* (فطرة) is Arabic for innate nature, the disposition a being is born with. Here it names the question of whether an agent can be born with trust properties it cannot later shed or amplify.
+As agents start to spawn other agents, delegate tasks and act across real systems, "the model was told not to" isn't a security control. Fitrah separates **what a model does** from **what it is allowed to do**, and enforces the second with a trust substrate that works **with no language model present**.
+
+| The model may… | The trust substrate decides… |
+|---|---|
+| reason, learn and adapt | which constitutional properties are mandatory |
+| behave adversarially | which authority the agent can exercise |
+| try to spawn descendants | which authority it may delegate, and what counts as a valid descendant |
+| request any action | which protected actions actually execute |
+
+*Fitrah* (فطرة) is Arabic for **innate nature**, the disposition a being is born with. Here it names the question of whether an agent can be born with trust it can't later shed or amplify.
+
+## 📊 First results
+
+<img src="assets/results.jpg" alt="Lab 0 Stage 1: invalid child births 10, 10 and 0; core modifications 4, 4 and 0; protected-action bypasses 3, 3 and 0, for baseline, rules in model context, and Fitrah enforcement." width="100%">
+
+Putting the rules **in the model's context (B)** changed nothing compared with the **baseline (A)**. **Fitrah enforcement (C)** blocked every invalid birth, core modification and protected-action bypass, with **no false blocks** on the 6 legitimate cases. The verifier passes, and runs are byte-identical.
+
+> **Scope, honestly:** this is a scripted attacker (A0) in a deterministic harness. Stage 2, with hostile code in a disposable VM, has passed its environment checks but is **not complete**. See [Current status](#current-status).
+
+<details>
+<summary><b>Reproduce it in a minute</b></summary>
+
+```bash
+pip install -r requirements.txt
+PYTHONPATH=src python3 src/simulator/run.py
+PYTHONPATH=src python3 src/simulator/verify.py experiments/lab0/logs/stage1-C-rep1.jsonl \
+    experiments/lab0/genesis.json experiments/lab0/keys/test-signing.pub experiments/lab0/fixtures.json
+```
+</details>
+
+## 🧱 Five layers of agent trust
+
+<img src="assets/layers.jpg" alt="Five layers: behavioural disposition; digital DNA and inherited authority (Phase 1, Lab 0); cryptographic identity and lineage; execution trust; inter-agent trust and federation." width="100%">
+
+Fitrah tackles these one layer at a time. **Phase 1 focuses only on Layer 2**, because inherited authority has to hold before identity, attestation or federation can mean anything.
 
 ## 🤝 Collaborate
 
-Fitrah is an open, falsifiable research programme, and it is looking for collaborators. Useful backgrounds include:
+Fitrah is an open, falsifiable research programme, and it is looking for collaborators in:
 
 - **Agent and AI security:** adversarial agents, containment, prompt-independent controls
-- **Applied cryptography and capability systems:** macaroons, Biscuit, UCAN, SPKI, object capabilities
+- **Capability systems and applied cryptography:** macaroons, Biscuit, UCAN, SPKI, object capabilities
 - **Formal methods:** stating and checking the hereditary invariants
-- **Systems and attestation:** cgroups, TEEs and measured runtimes, for the clone and execution-trust problems
+- **Systems and attestation:** cgroups, TEEs, measured runtimes (the clone problem)
 - **Multi-agent systems and policy:** population-level constraints and governance
 
-Ways to start:
+**Start here:** pick an [open question](https://github.com/c0ldskin/fitrah/issues?q=is%3Aissue+is%3Aopen+label%3A%22open+question%22). The [good first challenges](https://github.com/c0ldskin/fitrah/issues?q=label%3A%22good+first+challenge%22) ask what Fitrah adds over existing delegation systems, and "nothing" would be a result worth finding. Or [introduce yourself](https://github.com/c0ldskin/fitrah/discussions/19), or propose an experiment with the issue form. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for how work is reviewed and credited.
 
-1. Read the [current hypothesis](#current-research-hypothesis) and [`research/open-questions.md`](research/open-questions.md).
-2. Pick an issue labelled **open question**, or challenge a claim. Negative results are welcome.
-3. Propose an experiment with the **Experiment proposal** issue form.
-4. Introduce yourself in [Discussions](../../discussions).
+Maintained by **Zeeshan Mehdi**, Dubai · [LinkedIn](https://www.linkedin.com/in/zmehdi)
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) for how research contributions are reviewed and credited. Maintainer: Zeeshan Mehdi ([LinkedIn](https://www.linkedin.com/in/zmehdi)).
+## 📚 Cite
+
+```bibtex
+@software{mehdi_fitrah,
+  author = {Mehdi, Zeeshan},
+  title  = {Fitrah: Hereditary Trust for Autonomous AI Agents},
+  url    = {https://github.com/c0ldskin/fitrah},
+  note   = {Open research programme}
+}
+```
+
+<br>
+
+---
+
+<div align="center"><b>Research details</b> · everything below is the full research record</div>
+
+---
 
 ## Why this matters
 
