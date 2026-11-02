@@ -7,12 +7,15 @@
 <a href="experiments/lab0/results/stage1-findings.md"><img src="https://img.shields.io/badge/Lab%200%20·%20Stage%201-pass-3FB8AF?style=flat-square" alt="Lab 0 Stage 1: pass"></a>
 <a href="https://github.com/c0ldskin/fitrah/issues?q=is%3Aissue+is%3Aopen+label%3A%22open+question%22"><img src="https://img.shields.io/github/issues/c0ldskin/fitrah/open%20question?style=flat-square&color=D4A853&label=open%20questions" alt="Open questions"></a>
 <a href="https://github.com/c0ldskin/fitrah/discussions"><img src="https://img.shields.io/badge/collaborators-welcome-8A7BC8?style=flat-square" alt="Collaborators welcome"></a>
+<img src="https://img.shields.io/badge/status-paused%20·%20seeking%20collaborators-E9CF8E?style=flat-square" alt="Status: paused, seeking collaborators">
 <img src="https://img.shields.io/badge/python-3.12%2B-5B6B91?style=flat-square" alt="Python 3.12+">
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-5B6B91?style=flat-square" alt="MIT license"></a>
 
-**[The question](#the-question)** · **[Results](#-first-results)** · **[Architecture](#-five-layers-of-agent-trust)** · **[Collaborate](#-collaborate)** · **[Cite](#-cite)** · **[Website](https://c0ldskin.github.io/fitrah/)**
+**[The question](#the-question)** · **[Results](#-results-honestly)** · **[Architecture](#-five-layers-of-agent-trust)** · **[Collaborate](#-collaborate)** · **[Cite](#-cite)** · **[Website](https://c0ldskin.github.io/fitrah/)** · **[Findings](https://c0ldskin.github.io/fitrah/findings.html)** · **[العربية](https://c0ldskin.github.io/fitrah/ar/)**
 
 </div>
+
+> **⏸ Status: paused since 23 October 2026, and seeking collaborators.** Lab 0 Stage 1 and 1B are complete; Stage 2 is incomplete. Fair comparisons showed that a strong delegation broker given the same trusted facts matches Fitrah's current rules, so the open problems are now lifecycle assurance, population-level safety and evidence that holds against a lying runtime. See [all findings](https://c0ldskin.github.io/fitrah/findings.html).
 
 ## The question
 
@@ -29,11 +32,20 @@ As agents start to spawn other agents, delegate tasks and act across real system
 
 *Fitrah* (فطرة) is Arabic for **innate nature**, the disposition a being is born with. Here it names the question of whether an agent can be born with trust it can't later shed or amplify.
 
-## 📊 First results
+## 📊 Results, honestly
 
 <img src="assets/results.jpg" alt="Lab 0 Stage 1: invalid child births 10, 10 and 0; core modifications 4, 4 and 0; protected-action bypasses 3, 3 and 0, for baseline, rules in model context, and Fitrah enforcement." width="100%">
 
 Putting the rules **in the model's context (B)** changed nothing compared with the **baseline (A)**. **Fitrah enforcement (C)** blocked every invalid birth, core modification and protected-action bypass, with **no false blocks** on the 6 legitimate cases. The verifier passes, and runs are byte-identical.
+
+| ✅ What holds | ⚠️ What doesn't, yet |
+|---|---|
+| Enforcement outside the model beats rules in the prompt (Stage 1) | **No advantage over a strong delegation broker** given the same trusted facts: 36 vs 36 valid states ([E6](experiments/nonvm/results/e6-strong-broker-ablation.md)); lineage evidence isn't distinctive either ([E8](experiments/nonvm/results/e8-lineage-evidence.md)) |
+| No counterexample across 100 generations, 2,000 histories and an exhaustive 6,742-state search (Stage 1B, bounded) | **Signed logs prove consistency, not truth** against a lying runtime (TC-26, [E4](experiments/nonvm/results/e4-external-truth.md)) |
+| cgroup-v2 containment catches escapes that `killpg` misses (Stage 2, S65) | **Per-agent rules don't compose:** two compliant agents can leak a secret ([E5](experiments/nonvm/results/e5-population-collusion.md)) |
+| Gating authority on a committed birth-to-instance binding closes a crash gap ([E9](experiments/nonvm/results/e9-birth-instance-binding.md)) | **Stage 2 is incomplete:** the first full VM run returned INVALID_RUN |
+
+Every result, the eleven lessons learned and the Islamic-tradition inspirations are on the [website](https://c0ldskin.github.io/fitrah/findings.html).
 
 > **Scope, honestly:** this is a scripted attacker (A0) in a deterministic harness. Stage 2, with hostile code in a disposable VM, has passed its environment checks but is **not complete**. See [Current status](#current-status).
 
